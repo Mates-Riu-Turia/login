@@ -17,6 +17,9 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: false,
+    backend: {
+      loadPath: '/login/locales/{{lng}}/{{ns}}.json'
+    }
   });
 
 export default i18n;
