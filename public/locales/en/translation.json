@@ -1,3 +1,11 @@
 {
-    "title": "Log in"
+    "title": "Log in",
+    "titleLong": "Log in Riu Turia Math",
+    "chooseLang": "Choose a language",
+    "orgName": "© 2023 Dept. of Mathematics of the IES Riu Túria",
+    "themeSelector": {
+        "light": " Light",
+        "dark": " Dark",
+        "auto": " Auto"
+    }
 }
