@@ -73,7 +73,7 @@ export function Footer({ t }) {
             <p className="col-md-4 mb-1 ms-2 text-body-secondary">{t("orgName")}</p>
 
             <a href="/" className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none me-3">
-                <img src="/math_museum/images/favicon_org.ico" alt="Logo" width="30" height="24" className="align-text-top" />
+                <img src="/login/images/favicon_org.ico" alt="Logo" width="30" height="24" className="align-text-top" />
             </a>
         </footer>
     );
