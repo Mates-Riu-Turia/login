@@ -1,3 +1,11 @@
 {
-    "title": "Iniciar sessió"
+    "title": "Iniciar sessió",
+    "titleLong": "Iniciar sessió en Mates Riu Túria",
+    "chooseLang": "Elegeix un idioma",
+    "orgName": "© 2023 Dept. de Matemàtiques de l'IES Riu Túria",
+    "themeSelector": {
+        "light": " Clar",
+        "dark": " Fosc",
+        "auto": " Automàtic"
+    }
 }
