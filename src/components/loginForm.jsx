@@ -46,59 +46,61 @@ export function LoginForm({ t }) {
 
     switch (redirectTo) {
         case "museum":
-            redirectName = t("redirect.museum");
+            redirectName = t("logIn.redirect.museum");
             break;
         case "timeline":
-            redirectName = t("redirect.timeline");
+            redirectName = t("logIn.redirect.timeline");
             break;
         case "readings":
-            redirectName = t("redirect.readings");
+            redirectName = t("logIn.redirect.readings");
             break;
         case "trivial":
-            redirectName = t("redirect.trivial");
+            redirectName = t("logIn.redirect.trivial");
             break;
         default:
-            redirectName = t("redirect.account");
+            redirectName = t("logIn.redirect.account");
             break;
     }
+
+    redirectName = t("logIn.goto") + redirectName;
 
     return (
         <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5 mb-5">
             <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
-                <h1 className="text-center text-xl-start">Welcome Back</h1>
-                <h6>Go to {redirectName}</h6>
+                <h1 className="text-center text-xl-start">{t("logIn.welcome")}</h1>
+                <h6>{redirectName}</h6>
 
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <FloatingLabel
                         controlId="floatingInput"
-                        label="Email address"
+                        label={t("email")}
                         className="mb-3"
                     >
-                        <Form.Control required type="email" placeholder="name@example.com" />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                        <Form.Control.Feedback type="invalid">Please provide a valid email.</Form.Control.Feedback>
+                        <Form.Control required type="email" placeholder="" />
+                        <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">{t("verify.email")}</Form.Control.Feedback>
                     </FloatingLabel>
 
-                    <FloatingLabel controlId="floatingPassword" label="Password">
-                        <Form.Control required type={passwordVisibility.status} placeholder="Password" />
+                    <FloatingLabel controlId="floatingPassword" label={t("password")}>
+                        <Form.Control required type={passwordVisibility.status} placeholder="" />
                         <Button variant="outline-primary" className="password-toggle d-inline-block" onClick={changePasswordVisibility}>
                             <i className={passwordVisibility.icon}></i>
                         </Button>
 
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                        <Form.Control.Feedback type="invalid">Please provide a valid password.</Form.Control.Feedback>
+                        <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">{t("verify.password")}</Form.Control.Feedback>
                     </FloatingLabel>
 
-                    <Button variant="primary" type="submit" className="mt-3 mb-3 w-100">Log in</Button>
+                    <Button variant="primary" type="submit" className="mt-3 mb-3 w-100">{t("logIn.logIn")}</Button>
                 </Form>
                 <a className="btn w-100" href="#">
-                    Password forgotten?
+                    {t("logIn.forgotten")}
                 </a>
 
                 <hr className="my-4" />
                 <p className="text-center text-xl-start pb-3 mb-3">
-                    Don’t have an account yet?
-                    <a href="account-signup.html">Register here.</a>
+                    {t("logIn.notAccountYet")}
+                    <a href="account-signup.html">{t("logIn.register")}</a>
                 </p>
             </div>
         </Container >
