@@ -1,8 +1,9 @@
 import { React } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Nav, Footer, Logo } from "./components/basicUI";
-
+import { Nav, Footer } from "./components/basicUI";
+import { LoginForm } from "./components/loginForm"
+ 
 export default function App() {
     const { t, i18n } = useTranslation();
 
@@ -16,6 +17,7 @@ export default function App() {
     return (
         <>
             <Nav t={t} changeLanguage={changeLanguage} />
+            <LoginForm t={t} />
             <Footer t={t} />
         </>
     );
