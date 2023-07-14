@@ -1,11 +1,33 @@
 {
-    "title": "Iniciar sessió",
-    "titleLong": "Iniciar sessió en Mates Riu Túria",
+    "title": "Gestió de comptes",
+    "titleLong": "Gestió de comptes",
     "chooseLang": "Elegeix un idioma",
     "orgName": "© 2023 Dept. de Matemàtiques de l'IES Riu Túria",
     "themeSelector": {
         "light": " Clar",
         "dark": " Fosc",
         "auto": " Automàtic"
+    },
+    "logIn": {
+        "welcome": "Benvingut de nou!",
+        "goto": "Anar a ",
+        "redirect": {
+            "museum": "Museu de les Matemàtiques",
+            "timeline": "Línia del Temps de les Matemàtiques",
+            "readings": "Lectures Matemàtiques Recomanades",
+            "trivial": "Trivial",
+            "account": "Gestió de comptes"
+        },
+        "logIn": "Iniciar sessió",
+        "forgotten": "Contrasenya olvidada?",
+        "notAccountYet": "No tens compte encara?",
+        "register": "Registra't ací",
+        "verify": {
+            "ok": "Sembla correcte!",
+            "email": "Per favor, proveïsca un email vàlid.",
+            "password": "Per favor, proveïsca una contrasenya vàlida."
+        },
+        "email": "Email",
+        "password": "Contrasenya"
     }
 }
