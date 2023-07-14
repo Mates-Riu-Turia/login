@@ -51,6 +51,9 @@ export function LoginForm({ t }) {
                 document.getElementById("password").value = "";
                 setCredentialError(true);
             }
+            else {
+                window.location.href = redirectPage;
+            }
         }
 
         setValidated(true);
@@ -60,22 +63,28 @@ export function LoginForm({ t }) {
     const redirectTo = url.searchParams.get("redirectTo");
 
     let redirectName;
+    let redirectPage;
 
     switch (redirectTo) {
         case "museum":
             redirectName = t("logIn.redirect.museum");
+            redirectPage = "/math_museum";
             break;
         case "timeline":
             redirectName = t("logIn.redirect.timeline");
+            redirectPage = "/math_timeline";
             break;
         case "readings":
             redirectName = t("logIn.redirect.readings");
+            redirectPage = "/math_readings";
             break;
         case "trivial":
             redirectName = t("logIn.redirect.trivial");
+            redirectPage = "/trivial";
             break;
         default:
             redirectName = t("logIn.redirect.account");
+            redirectPage = "/login/account";
             break;
     }
 
