@@ -1,11 +1,33 @@
 {
-    "title": "Log in",
-    "titleLong": "Log in Riu Turia Math",
+    "title": "Account Management",
+    "titleLong": "Account Management",
     "chooseLang": "Choose a language",
     "orgName": "© 2023 Dept. of Mathematics of the IES Riu Túria",
     "themeSelector": {
         "light": " Light",
         "dark": " Dark",
         "auto": " Auto"
-    }
+    },
+    "logIn": {
+        "welcome": "Welcome back!",
+        "goto": "Go to ",
+        "redirect": {
+            "museum": "Math Museum",
+            "timeline": "Math Timeline",
+            "readings": "Recommended Math Readings",
+            "trivial": "Trivial",
+            "account": "Account Management"
+        },
+        "logIn": "Log in",
+        "forgotten": "Password forgotten?",
+        "notAccountYet": "Don't have an account yet?",
+        "register": "Register here."
+    },
+    "verify": {
+        "ok": "Looks good!",
+        "email": "Please, provide a valid email.",
+        "password": "Please, provide a valid password."
+    },
+    "email": "Email",
+    "password": "Password"
 }
