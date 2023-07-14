@@ -10,12 +10,13 @@
         "react-bootstrap": "^2.8.0",
         "react-dom": "^18.0.0",
         "react-i18next": "^13.0.1",
-        "react-scripts": "^5.0.0"
+        "react-scripts": "^5.0.0",
+        "realm-web": "^2.0.0"
     },
     "main": "/index.js",
     "devDependencies": {
-        "react-scripts": "^5.0.0",
-        "gh-pages": "^5.0.0"
+        "gh-pages": "^5.0.0",
+        "react-scripts": "^5.0.0"
     },
     "name": "login",
     "description": "A web app that is used as centralized login for Mates-Riu-Turia apps.",

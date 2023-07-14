@@ -1,22 +1,12 @@
 import { useState, React } from "react";
 import { Container, FloatingLabel, Form, Button } from "react-bootstrap";
 
+import { login } from "../db";
+
 export function LoginForm({ t }) {
-    const [validated, setValidated] = useState(false);
-
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-
-        setValidated(true);
-    };
-
     const [passwordVisibility, setPasswordVisibility] = useState({
         status: "password",
-        icon: "bi bi-eye-fill"
+        icon: "bi bi-eye-fill",
     })
 
     const changePasswordVisibility = () => {
@@ -24,7 +14,7 @@ export function LoginForm({ t }) {
             setPasswordVisibility(
                 {
                     status: "text",
-                    icon: "bi bi-eye-slash-fill"
+                    icon: "bi bi-eye-slash-fill",
                 }
             );
         }
@@ -33,10 +23,28 @@ export function LoginForm({ t }) {
             setPasswordVisibility(
                 {
                     status: "password",
-                    icon: "bi bi-eye-fill"
+                    icon: "bi bi-eye-fill",
                 }
             );
         }
+    };
+
+
+    const [validated, setValidated] = useState(false);
+
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        event.preventDefault();
+
+        if (form.checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            login("asengar2009@gmail.com", "prueba");
+
+        }
+
+        setValidated(true);
+
     };
 
     const url = new URL(window.location.href);
@@ -83,9 +91,12 @@ export function LoginForm({ t }) {
 
                     <FloatingLabel controlId="floatingPassword" label={t("password")}>
                         <Form.Control required type={passwordVisibility.status} placeholder="" />
-                        <Button variant="outline-primary" className="password-toggle d-inline-block" onClick={changePasswordVisibility}>
-                            <i className={passwordVisibility.icon}></i>
-                        </Button>
+
+                        <div style={{position: "relative"}}>
+                            <button className="password-toggle" type="button" onClick={changePasswordVisibility}>
+                                <i className={passwordVisibility.icon}></i>
+                            </button>
+                        </div>
 
                         <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
                         <Form.Control.Feedback type="invalid">{t("verify.password")}</Form.Control.Feedback>
