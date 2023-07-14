@@ -134,7 +134,7 @@ function CredentialsError({ t, show, setShow }) {
     if (show) {
         return (
             <Alert className="mt-2" variant="danger" onClose={() => setShow(false)} dismissible>
-                User or password invalid!
+                {t("logIn.invalid")}
             </Alert>
         );
     }

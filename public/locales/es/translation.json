@@ -21,7 +21,8 @@
         "logIn": "Iniciar sesión",
         "forgotten": "¿Contraseña olvidada?",
         "notAccountYet": "¿No tienes cuenta todavía?",
-        "register": "Regístrate aquí."
+        "register": "Regístrate aquí.",
+        "invalid": "¡Usuario o contraseña inválido!"
     },
     "verify": {
         "ok": "¡Parece correcto!",
