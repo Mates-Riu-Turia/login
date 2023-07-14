@@ -47,6 +47,8 @@ export function LoginForm({ t }) {
             const password = document.getElementById("password").value;
 
             if (await login(user, password)) {
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
                 setCredentialError(true);
             }
         }
