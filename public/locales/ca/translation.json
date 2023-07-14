@@ -21,7 +21,8 @@
         "logIn": "Iniciar sessió",
         "forgotten": "Contrasenya olvidada?",
         "notAccountYet": "No tens compte encara?",
-        "register": "Registra't ací"
+        "register": "Registra't ací",
+        "invalid": "Usuari o contrasenya invàlid!"
     },
     "verify": {
         "ok": "Sembla correcte!",
