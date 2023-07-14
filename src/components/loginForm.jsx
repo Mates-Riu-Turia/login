@@ -1,7 +1,7 @@
 import { useState, React } from "react";
 import { Container, FloatingLabel, Form, Button, Alert } from "react-bootstrap";
 
-import { login } from "../db";
+import { login, app } from "../db";
 
 export function LoginForm({ t }) {
     const [credentialError, setCredentialError] = useState(false);
@@ -86,6 +86,10 @@ export function LoginForm({ t }) {
             redirectName = t("logIn.redirect.account");
             redirectPage = "/login/account";
             break;
+    }
+
+    if (app.currentUser) {
+        window.location.href = redirectPage;
     }
 
     redirectName = t("logIn.goto") + redirectName;
