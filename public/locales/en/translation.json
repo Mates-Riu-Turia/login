@@ -21,7 +21,8 @@
         "logIn": "Log in",
         "forgotten": "Password forgotten?",
         "notAccountYet": "Don't have an account yet?",
-        "register": "Register here."
+        "register": "Register here.",
+        "invalid": "User or password invalid!"
     },
     "verify": {
         "ok": "Looks good!",
