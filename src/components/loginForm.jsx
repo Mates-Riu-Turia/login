@@ -14,6 +14,31 @@ export function LoginForm({ t }) {
         setValidated(true);
     };
 
+    const [passwordVisibility, setPasswordVisibility] = useState({
+        status: "password",
+        icon: "bi bi-eye-fill"
+    })
+
+    const changePasswordVisibility = () => {
+        if (passwordVisibility.status == "password") {
+            setPasswordVisibility(
+                {
+                    status: "text",
+                    icon: "bi bi-eye-slash-fill"
+                }
+            );
+        }
+
+        else {
+            setPasswordVisibility(
+                {
+                    status: "password",
+                    icon: "bi bi-eye-fill"
+                }
+            );
+        }
+    };
+
     const url = new URL(window.location.href);
     const redirectTo = url.searchParams.get("redirectTo");
 
@@ -55,10 +80,15 @@ export function LoginForm({ t }) {
                     </FloatingLabel>
 
                     <FloatingLabel controlId="floatingPassword" label="Password">
-                        <Form.Control required type="password" placeholder="Password" />
+                        <Form.Control required type={passwordVisibility.status} placeholder="Password" />
+                        <Button variant="outline-primary" className="password-toggle d-inline-block" onClick={changePasswordVisibility}>
+                            <i className={passwordVisibility.icon}></i>
+                        </Button>
+
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         <Form.Control.Feedback type="invalid">Please provide a valid password.</Form.Control.Feedback>
                     </FloatingLabel>
+
                     <Button variant="primary" type="submit" className="mt-3 mb-3 w-100">Log in</Button>
                 </Form>
                 <a className="btn w-100" href="#">
