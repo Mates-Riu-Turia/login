@@ -24,7 +24,7 @@
         "register": "Regístrate aquí."
     },
     "verify": {
-        "verifyOk": "¡Parece correcto!",
+        "ok": "¡Parece correcto!",
         "email": "Por favor, provea un email válido.",
         "password": "Por favor, provea una constraseña válida."
     },

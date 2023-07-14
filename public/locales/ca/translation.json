@@ -21,13 +21,13 @@
         "logIn": "Iniciar sessió",
         "forgotten": "Contrasenya olvidada?",
         "notAccountYet": "No tens compte encara?",
-        "register": "Registra't ací",
-        "verify": {
-            "ok": "Sembla correcte!",
-            "email": "Per favor, proveïsca un email vàlid.",
-            "password": "Per favor, proveïsca una contrasenya vàlida."
-        },
-        "email": "Email",
-        "password": "Contrasenya"
-    }
+        "register": "Registra't ací"
+    },
+    "verify": {
+        "ok": "Sembla correcte!",
+        "email": "Per favor, proveïsca un email vàlid.",
+        "password": "Per favor, proveïsca una contrasenya vàlida."
+    },
+    "email": "Email",
+    "password": "Contrasenya"
 }
