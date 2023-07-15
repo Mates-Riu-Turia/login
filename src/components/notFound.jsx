@@ -1,5 +1,5 @@
 export function NotFound({ t }) {
-    document.title = t("notFound.title");
+    document.title = t("notFound.error");
 
     return (
         <>
