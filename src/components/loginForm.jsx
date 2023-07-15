@@ -130,7 +130,7 @@ export function LoginForm({ t }) {
 
                         <Button variant="primary" type="submit" className="mt-3 mb-3 w-100">{t("logIn.logIn")}</Button>
                     </Form>
-                    <a className="btn w-100" href="#">
+                    <a className="btn w-100" href="/login/reset_password">
                         {t("logIn.forgotten")}
                     </a>
 

@@ -30,4 +30,26 @@ export const login = async (email, password) => {
     return false;
 };
 
+export const sendResetEmail = async (email) => {
+    try {
+        await app.emailPasswordAuth.sendResetPasswordEmail({ email });
+    }
+    catch {
+        return true;
+    }
+    return false;
+};
 
+export const resetPassword = async (password, token, tokenId) => {
+    try {
+        await app.emailPasswordAuth.resetPassword({
+            password,
+            token,
+            tokenId,
+          });
+    }
+    catch {
+        return true;
+    }
+    return false;
+};
