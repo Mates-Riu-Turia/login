@@ -30,5 +30,11 @@
         "password": "Per favor, proveïsca una contrasenya vàlida."
     },
     "email": "Email",
-    "password": "Contrasenya"
+    "password": "Contrasenya",
+    "notFound": {
+        "onomatopoeia": "Ups!",
+        "error": "Pàgina no trobada.",
+        "description": "La pàgina que cerques no existeix o ha sigut moguda.",
+        "home": "Anar a inici"
+    }
 }
