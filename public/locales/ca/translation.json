@@ -36,5 +36,9 @@
         "error": "Pàgina no trobada.",
         "description": "La pàgina que cerques no existeix o ha sigut moguda.",
         "home": "Anar a inici"
+    },
+    "resetPassword": {
+        "welcome": "Recuperar contasenya",
+        "help": "Introduïsca el seu email, a continuació se li enviarà a aqueixa mateix email un enllaç per a recuperar el compte."
     }
 }
