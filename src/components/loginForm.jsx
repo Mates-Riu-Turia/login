@@ -4,6 +4,8 @@ import { Container, FloatingLabel, Form, Button, Alert } from "react-bootstrap";
 import { login, app } from "../db";
 
 export function LoginForm({ t }) {
+    document.title = t("logIn.logIn");
+
     const [credentialError, setCredentialError] = useState(false);
 
     const [passwordVisibility, setPasswordVisibility] = useState({

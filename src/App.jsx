@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Nav, Footer } from "./components/basicUI";
-import { LoginForm } from "./components/loginForm"
+import { LoginForm } from "./components/loginForm";
+import { NotFound } from "./components/notFound";
 
 export default function App() {
     const { t, i18n } = useTranslation();
@@ -21,6 +22,9 @@ export default function App() {
             <Routes>
                 <Route path="/login/" element={
                     <LoginForm t={t} />
+                }/>
+                <Route path="*" element={
+                    <NotFound t={t} />
                 }/>
             </Routes>
             <Footer t={t} />

@@ -10,3 +10,7 @@
     background-color: transparent;
     cursor: pointer;
 }
+
+#notFoundContainer {
+    top: 35% !important;
+}
