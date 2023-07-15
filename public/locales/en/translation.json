@@ -30,5 +30,11 @@
         "password": "Please, provide a valid password."
     },
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "notFound": {
+        "onomatopoeia": "Ops!",
+        "error": "Page not found.",
+        "description": "The page you are looking for doesn't exist or has been moved.",
+        "home": "Go home"
+    }
 }
