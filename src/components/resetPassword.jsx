@@ -4,6 +4,9 @@ import { Container, Form, Button, FloatingLabel } from "react-bootstrap";
 import { sendResetEmail } from "../db";
 
 export function ResetPassword({ t }) {
+    // Set the title of the page
+    document.title = t("resetPassword.welcome");
+
     /* Possible component status
         - sendEmail -> Ask for email
         - emailSended -> The email was just sended, show a waiting screen
@@ -65,6 +68,8 @@ function SendEmail({ t, setStatus }) {
                 <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
                     <h1 className="text-center text-xl-start">{t("resetPassword.welcome")}</h1>
 
+                    <p>{t("resetPassword.help")}</p>
+
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <FloatingLabel
                             controlId="email"
@@ -76,7 +81,7 @@ function SendEmail({ t, setStatus }) {
                             <Form.Control.Feedback type="invalid">{t("verify.email")}</Form.Control.Feedback>
                         </FloatingLabel>
 
-                        <Button variant="primary" type="submit" className="mt-3 mb-3 w-100">{t("resetPassword.send")}</Button>
+                        <Button variant="primary" type="submit" className="mt-3 mb-3 w-100">{t("resetPassword.welcome")}</Button>
                     </Form>
                 </div>
             </Container >

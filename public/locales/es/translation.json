@@ -36,5 +36,9 @@
         "error": "Página no encontrada.",
         "description": "La página que buscas no existe o ha sido movida.",
         "home": "Ir a inicio"
+    },
+    "resetPassword": {
+        "welcome": "Recuperar contraseña",
+        "help": "Introduzca su email, a continuación se le enviará a esa mismo email un enlance para recuperar la cuenta."
     }
 }
