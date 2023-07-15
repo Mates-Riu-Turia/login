@@ -36,5 +36,9 @@
         "error": "Page not found.",
         "description": "The page you are looking for doesn't exist or has been moved.",
         "home": "Go home"
+    },
+    "resetPassword": {
+        "welcome": "Recovery password",
+        "help": "Introduce your email, then a link to recover the account will be sent to that same email."
     }
 }
