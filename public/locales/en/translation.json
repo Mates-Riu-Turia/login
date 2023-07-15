@@ -39,6 +39,7 @@
     },
     "resetPassword": {
         "welcome": "Recovery password",
-        "help": "Introduce your email, then a link to recover the account will be sent to that same email."
+        "help": "Introduce your email, then a link to recover the account will be sent to that same email.",
+        "error": "An error happened when recovering password!"
     }
 }
