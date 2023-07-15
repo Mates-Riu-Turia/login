@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Form, Button, FloatingLabel } from "react-bootstrap";
+import { Container, Form, Button, FloatingLabel, Alert } from "react-bootstrap";
 
 import { sendResetEmail } from "../db";
 
@@ -35,6 +35,9 @@ export function ResetPassword({ t }) {
 }
 
 function SendEmail({ t, setStatus }) {
+    // Show an error
+    const [credentialError, setCredentialError] = useState(false);
+
     // Validate the form
     const [validated, setValidated] = useState(false);
 
@@ -51,6 +54,7 @@ function SendEmail({ t, setStatus }) {
 
             if (await sendResetEmail(email)) {
                 // Manage errors
+                setCredentialError(true);
             }
             else {
                 // Change the status of the top level component
@@ -64,6 +68,7 @@ function SendEmail({ t, setStatus }) {
 
     return (
         <>
+        <CredentialsError t={t} show={credentialError} setShow={setCredentialError}/>
             <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5 mb-5">
                 <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
                     <h1 className="text-center text-xl-start">{t("resetPassword.welcome")}</h1>
@@ -87,4 +92,14 @@ function SendEmail({ t, setStatus }) {
             </Container >
         </>
     );
+}
+
+function CredentialsError({ t, show, setShow }) {
+    if (show) {
+        return (
+            <Alert className="mt-2" variant="danger" onClose={() => setShow(false)} dismissible>
+                {t("resetPassword.error")}
+            </Alert>
+        );
+    }
 }
