@@ -40,6 +40,7 @@
     "resetPassword": {
         "welcome": "Recuperar contraseña",
         "help": "Introduzca su email, a continuación se le enviará a esa mismo email un enlace para recuperar la cuenta.",
-        "error": "¡Hubo un error al recuperar la contraseña!"
+        "error": "¡Hubo un error al recuperar la contraseña!",
+        "sended": "Revise su bandeja de entrada, acabamos de enviarle un email."
     }
 }
