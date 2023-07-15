@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Form, Button, FloatingLabel, Alert } from "react-bootstrap";
 
-import { sendResetEmail } from "../db";
+import { sendResetEmail, resetPassword
+ } from "../db";
 
 export function ResetPassword({ t }) {
     // Set the title of the page
@@ -18,9 +19,11 @@ export function ResetPassword({ t }) {
     const token = url.searchParams.get("token");
     const tokenId = url.searchParams.get("tokenId");
 
-    if (token && tokenId) {
-        setStatus("emailRecived");
-    }
+    useEffect(() => {
+        if (token && tokenId) {
+            setStatus("emailRecived");
+        }
+    }, [token, tokenId, setStatus]);
 
     switch (status) {
         case "sendEmail":
@@ -28,7 +31,7 @@ export function ResetPassword({ t }) {
         case "emailSended":
             return <EmailSended t={t} />;
         case "emailRecived":
-            return <EmailRecived t={t} setStatus={setStatus} />;
+            return <EmailRecived t={t} token={token} tokenId={tokenId} />;
         default:
             return <SendEmail t={t} setStatus={setStatus} />;
     }
@@ -102,6 +105,136 @@ function EmailSended({ t }) {
                 <img src="/login/images/email_sended.gif" width="526px" />
             </div>
         </Container>
+    );
+}
+
+function EmailRecived({ t, token, tokenId }) {
+    const [credentialError, setCredentialError] = useState(false);
+
+    const [passwordVisibility, setPasswordVisibility] = useState({
+        status: "password",
+        icon: "bi bi-eye-fill",
+    })
+
+    const changePasswordVisibility = () => {
+        if (passwordVisibility.status == "password") {
+            setPasswordVisibility(
+                {
+                    status: "text",
+                    icon: "bi bi-eye-slash-fill",
+                }
+            );
+        }
+
+        else {
+            setPasswordVisibility(
+                {
+                    status: "password",
+                    icon: "bi bi-eye-fill",
+                }
+            );
+        }
+    };
+
+    const [passwordVisibility2, setPasswordVisibility2] = useState({
+        status: "password",
+        icon: "bi bi-eye-fill",
+    })
+
+    const changePasswordVisibility2 = () => {
+        if (passwordVisibility2.status == "password") {
+            setPasswordVisibility2(
+                {
+                    status: "text",
+                    icon: "bi bi-eye-slash-fill",
+                }
+            );
+        }
+
+        else {
+            setPasswordVisibility2(
+                {
+                    status: "password",
+                    icon: "bi bi-eye-fill",
+                }
+            );
+        }
+    };
+
+    // Validate the form
+    const [validated, setValidated] = useState(false);
+
+    const handleSubmit = async (event) => {
+        const form = event.currentTarget;
+        event.preventDefault();
+
+        if (form.checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            setCredentialError(false);
+
+            const password = document.getElementById("password").value;
+            const repassword = document.getElementById("repeat-password").value;
+
+            if (password === repassword) {
+                if (await resetPassword(password, token, tokenId)) {
+                    // Manage errors
+                    setCredentialError(true);
+                }
+                else {
+                    // Redirect to the login page
+                    window.location.href = "/login/"
+                }
+            }
+            else {
+                document.getElementById("repeat-password").value = "";
+            }
+        }
+
+        setValidated(true);
+    };
+
+    return (
+        <>
+            <CredentialsError t={t} show={credentialError} setShow={setCredentialError} />
+            <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5 mb-5">
+                <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
+                    <h1 className="text-center text-xl-start">{t("resetPassword.welcome")}</h1>
+
+                    <p>{t("resetPassword.help2")}</p>
+
+                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                        <FloatingLabel controlId="password" label={t("password")} className="mb-3">
+                            <Form.Control required type={passwordVisibility.status} placeholder="" />
+
+                            <div style={{ position: "relative" }}>
+                                <button className="password-toggle" type="button" onClick={changePasswordVisibility}>
+                                    <i className={passwordVisibility.icon}></i>
+                                </button>
+                            </div>
+
+                            <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">{t("verify.password")}</Form.Control.Feedback>
+                        </FloatingLabel>
+
+                        <FloatingLabel controlId="repeat-password" label={t("password")}>
+                            <Form.Control required type={passwordVisibility2.status} placeholder="" />
+
+                            <div style={{ position: "relative" }}>
+                                <button className="password-toggle" type="button" onClick={changePasswordVisibility2}>
+                                    <i className={passwordVisibility2.icon}></i>
+                                </button>
+                            </div>
+
+                            <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">{t("verify.password")}</Form.Control.Feedback>
+                        </FloatingLabel>
+
+                        <Button variant="primary" type="submit" className="mt-3 mb-3 w-100">{t("resetPassword.welcome")}</Button>
+                    </Form>
+                </div>
+            </Container >
+        </>
     );
 }
 
