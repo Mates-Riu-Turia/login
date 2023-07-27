@@ -14,14 +14,16 @@ export const login = async (email, password) => {
         const _ = await app.logIn(creadentials);
 
         // Log in the user via custom function for the rest of the apps
+        let apps = [];
         for (const otherId of otherIds) {
             const otherApp = new Realm.App(otherId);
             const otherCredentials = Realm.Credentials.function({
                 username: email,
                 password: password
             });
-            const _ = await otherApp.logIn(otherCredentials);
+            apps.push(otherApp.logIn(otherCredentials));
         }
+        await Promise.all(apps);
     }
     catch {
         return true;
