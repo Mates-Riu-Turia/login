@@ -32,6 +32,21 @@ export const login = async (email, password) => {
     return false;
 };
 
+export const logout = async () => {
+    try {
+        let apps = [app.currentUser.logOut()];
+        for (const otherId of otherIds) {
+            const otherApp = new Realm.App(otherId);
+            apps.push(otherApp.currentUser.logOut());
+        }
+        await Promise.all(apps);
+    }
+    catch {
+        return true;
+    }
+    return false;
+};
+
 export const sendResetEmail = async (email) => {
     try {
         await app.emailPasswordAuth.sendResetPasswordEmail({ email });
@@ -48,7 +63,7 @@ export const resetPassword = async (password, token, tokenId) => {
             password,
             token,
             tokenId,
-          });
+        });
     }
     catch {
         return true;

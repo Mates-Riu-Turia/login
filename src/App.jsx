@@ -6,6 +6,7 @@ import { Nav, Footer } from "./components/basicUI";
 import { LoginForm } from "./components/loginForm";
 import { NotFound } from "./components/notFound";
 import { ResetPassword } from "./components/resetPassword";
+import { Logout } from "./components/logout"
 
 export default function App() {
     const { t, i18n } = useTranslation();
@@ -29,6 +30,9 @@ export default function App() {
                 }/>
                 <Route path="*" element={
                     <NotFound t={t} />
+                }/>
+                <Route path="/login/logout" element={
+                    <Logout t={t} />
                 }/>
             </Routes>
             <Footer t={t} />
