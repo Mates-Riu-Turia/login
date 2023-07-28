@@ -1,0 +1,47 @@
+{
+    "title": "Gestió de comptes",
+    "titleLong": "Gestió de comptes",
+    "chooseLang": "Elegeix un idioma",
+    "orgName": "© 2023 Dept. de Matemàtiques de l'IES Riu Túria",
+    "themeSelector": {
+        "light": " Clar",
+        "dark": " Fosc",
+        "auto": " Automàtic"
+    },
+    "logIn": {
+        "welcome": "Benvingut de nou!",
+        "goto": "Anar a ",
+        "redirect": {
+            "museum": "Museu de les Matemàtiques",
+            "timeline": "Línia del Temps de les Matemàtiques",
+            "readings": "Lectures Matemàtiques Recomanades",
+            "trivial": "Trivial",
+            "account": "Gestió de comptes"
+        },
+        "logIn": "Iniciar sessió",
+        "forgotten": "Contrasenya olvidada?",
+        "notAccountYet": "No tens compte encara?",
+        "register": "Registra't ací",
+        "invalid": "Usuari o contrasenya invàlid!"
+    },
+    "verify": {
+        "ok": "Sembla correcte!",
+        "email": "Per favor, proveïsca un email vàlid.",
+        "password": "Per favor, proveïsca una contrasenya vàlida."
+    },
+    "email": "Email",
+    "password": "Contrasenya",
+    "notFound": {
+        "onomatopoeia": "Ups!",
+        "error": "Pàgina no trobada.",
+        "description": "La pàgina que cerques no existeix o ha sigut moguda.",
+        "home": "Anar a inici"
+    },
+    "resetPassword": {
+        "welcome": "Recuperar contasenya",
+        "help": "Introduïsca el seu email, a continuació se li enviarà a aqueixa mateix email un enllaç per a recuperar el compte.",
+        "error": "Va haver-hi un error al recuperar la contrasenya!",
+        "sended": "Revise la seua safata d'entrada, acabem d'enviar-li un email.",
+        "help2": "Introduïsca la nova contrasenya i repetisca-la de nou per a confirmar. Si les contrasenyes coincideixen serà redirigit a l'inici de sessió."
+    }
+}

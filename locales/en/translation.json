@@ -1,0 +1,47 @@
+{
+    "title": "Account Management",
+    "titleLong": "Account Management",
+    "chooseLang": "Choose a language",
+    "orgName": "© 2023 Dept. of Mathematics of the IES Riu Túria",
+    "themeSelector": {
+        "light": " Light",
+        "dark": " Dark",
+        "auto": " Auto"
+    },
+    "logIn": {
+        "welcome": "Welcome back!",
+        "goto": "Go to ",
+        "redirect": {
+            "museum": "Math Museum",
+            "timeline": "Math Timeline",
+            "readings": "Recommended Math Readings",
+            "trivial": "Trivial",
+            "account": "Account Management"
+        },
+        "logIn": "Log in",
+        "forgotten": "Password forgotten?",
+        "notAccountYet": "Don't have an account yet?",
+        "register": "Register here.",
+        "invalid": "User or password invalid!"
+    },
+    "verify": {
+        "ok": "Looks good!",
+        "email": "Please, provide a valid email.",
+        "password": "Please, provide a valid password."
+    },
+    "email": "Email",
+    "password": "Password",
+    "notFound": {
+        "onomatopoeia": "Ops!",
+        "error": "Page not found.",
+        "description": "The page you are looking for doesn't exist or has been moved.",
+        "home": "Go home"
+    },
+    "resetPassword": {
+        "welcome": "Recovery password",
+        "help": "Introduce your email, then a link to recover the account will be sent to that same email.",
+        "error": "An error happened when recovering password!",
+        "sended": "Check your inbox, we just sent you an email.",
+        "help2": "Enter the new password and repeat it again to confirm. If the passwords match you will be redirected to login."
+    }
+}
