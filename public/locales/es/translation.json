@@ -43,5 +43,6 @@
         "error": "¡Hubo un error al recuperar la contraseña!",
         "sended": "Revise su bandeja de entrada, acabamos de enviarle un email.",
         "help2": "Introduzca la nueva contraseña y repítala de nuevo para confirmar. Si las contraseñas coinciden será redirigido al inicio de sesión."
-    }
+    },
+    "loading": "Cargando..."
 }
