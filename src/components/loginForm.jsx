@@ -1,7 +1,18 @@
 import { useState, React } from "react";
-import { Container, FloatingLabel, Form, Button, Alert } from "react-bootstrap";
+import { Container, FloatingLabel, Form, Button, Alert, Spinner } from "react-bootstrap";
 
 import { login, app } from "../db";
+
+const Loading = () => {
+    return (
+        <div className="position-absolute top-50 start-50 translate-middle">
+            <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            <h3 className="text-center">Loading...</h3>
+        </div>
+    );
+};
 
 export function LoginForm({ t }) {
     document.title = t("logIn.logIn");
@@ -11,7 +22,9 @@ export function LoginForm({ t }) {
     const [passwordVisibility, setPasswordVisibility] = useState({
         status: "password",
         icon: "bi bi-eye-fill",
-    })
+    });
+
+    const [loading, setLoading] = useState(false);
 
     const changePasswordVisibility = () => {
         if (passwordVisibility.status == "password") {
@@ -48,6 +61,8 @@ export function LoginForm({ t }) {
             const user = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
+            setLoading(true);
+
             if (await login(user, password)) {
                 document.getElementById("email").value = "";
                 document.getElementById("password").value = "";
@@ -56,6 +71,8 @@ export function LoginForm({ t }) {
             else {
                 window.location.href = redirectPage;
             }
+
+            setLoading(false);
         }
 
         setValidated(true);
@@ -95,6 +112,10 @@ export function LoginForm({ t }) {
     }
 
     redirectName = t("logIn.goto") + redirectName;
+
+    if (loading) {
+        return <Loading/>;
+    }
 
     return (
         <>
