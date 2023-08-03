@@ -1,5 +1,7 @@
 import * as Realm from "realm-web";
 
+import { generateAvatar } from "./avatar";
+
 const id = { id: "login-hjvlc" };
 export const app = new Realm.App(id);
 
@@ -11,7 +13,9 @@ export const login = async (email, password) => {
         const creadentials = Realm.Credentials.emailPassword(email, password);
 
         // Authenticate the user for the Login App
-        const _ = await app.logIn(creadentials);
+        const user = await app.logIn(creadentials);
+
+        generateAvatar(user.customData.name);
 
         // Log in the user via custom function for the rest of the apps
         let apps = [];

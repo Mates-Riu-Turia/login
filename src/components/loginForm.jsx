@@ -64,15 +64,11 @@ export function LoginForm({ t }) {
             setLoading(true);
 
             if (await login(user, password)) {
+                setLoading(false);
                 document.getElementById("email").value = "";
                 document.getElementById("password").value = "";
                 setCredentialError(true);
             }
-            else {
-                window.location.href = redirectPage;
-            }
-
-            setLoading(false);
         }
 
         setValidated(true);
