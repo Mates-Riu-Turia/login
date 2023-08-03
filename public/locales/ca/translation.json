@@ -43,5 +43,6 @@
         "error": "Va haver-hi un error al recuperar la contrasenya!",
         "sended": "Revise la seua safata d'entrada, acabem d'enviar-li un email.",
         "help2": "Introduïsca la nova contrasenya i repetisca-la de nou per a confirmar. Si les contrasenyes coincideixen serà redirigit a l'inici de sessió."
-    }
+    },
+    "loading": "Carregant..."
 }
