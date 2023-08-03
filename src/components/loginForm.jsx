@@ -98,8 +98,11 @@ export function LoginForm({ t }) {
 
     return (
         <>
+            <div id="loginBackground" className="position-absolute end-0 w-50 d-none d-xl-block text-center">
+                <img className="img-fluid position-absolute top-50 translate-middle mb-5" src="/login/images/login.svg" alt="Login background illustration" />
+            </div>
             <CredentialsError t={t} show={credentialError} setShow={setCredentialError} />
-            <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5 mb-5">
+            <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5">
                 <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
                     <h1 className="text-center text-xl-start">{t("logIn.welcome")}</h1>
                     <h6>{redirectName}</h6>
