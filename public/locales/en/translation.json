@@ -43,5 +43,6 @@
         "error": "An error happened when recovering password!",
         "sended": "Check your inbox, we just sent you an email.",
         "help2": "Enter the new password and repeat it again to confirm. If the passwords match you will be redirected to login."
-    }
+    },
+    "loading": "Loading..."
 }
