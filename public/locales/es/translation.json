@@ -44,5 +44,10 @@
         "sended": "Revise su bandeja de entrada, acabamos de enviarle un email.",
         "help2": "Introduzca la nueva contraseña y repítala de nuevo para confirmar. Si las contraseñas coinciden será redirigido al inicio de sesión."
     },
-    "loading": "Cargando..."
+    "loading": "Cargando...",
+    "logOut": {
+        "thanks": "¡Gracias por usar nuestros servicios! Esperamos que su experiencia haya sido placentera.",
+        "logInAgain": "Para volver a iniciar sesión pulse ",
+        "logInAgainLink": "aquí"
+    }
 }

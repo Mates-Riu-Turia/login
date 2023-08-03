@@ -14,7 +14,7 @@ export function Logout({ t }) {
             <h1>{t("logOut.thanks")}</h1>
             <h4>
                 {t("logOut.logInAgain")}
-                <a href="/login/">{t("logOut.logInAgainLink ")}</a>
+                <a href="/login/">{t("logOut.logInAgainLink")}</a>
             </h4>
         </div>
     );
