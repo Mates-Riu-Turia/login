@@ -44,5 +44,10 @@
         "sended": "Revise la seua safata d'entrada, acabem d'enviar-li un email.",
         "help2": "Introduïsca la nova contrasenya i repetisca-la de nou per a confirmar. Si les contrasenyes coincideixen serà redirigit a l'inici de sessió."
     },
-    "loading": "Carregant..."
+    "loading": "Carregant...",
+    "logOut": {
+        "thanks": "Gràcies per usar els nostres serveis! Esperem que la seua experiència haja sigut plaent.",
+        "logInAgain": "Per a tornar a iniciar sessió prema ",
+        "logInAgainLink": "ací"
+    }
 }
