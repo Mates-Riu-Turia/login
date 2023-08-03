@@ -3,7 +3,7 @@ import { Container, FloatingLabel, Form, Button, Alert, Spinner } from "react-bo
 
 import { login, app } from "../db";
 
-const Loading = () => {
+const Loading = ({ t }) => {
     return (
         <div className="position-absolute top-50 start-50 translate-middle">
             <Spinner animation="border" role="status">
@@ -114,7 +114,7 @@ export function LoginForm({ t }) {
     redirectName = t("logIn.goto") + redirectName;
 
     if (loading) {
-        return <Loading/>;
+        return <Loading t={t} />;
     }
 
     return (
