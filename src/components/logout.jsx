@@ -8,4 +8,14 @@ export function Logout({ t }) {
         }
         login_sync();
     }, []);
+
+    return (
+        <div className="position-absolute top-50 start-50 translate-middle text-center">
+            <h1>{t("logOut.thanks")}</h1>
+            <h4>
+                {t("logOut.logInAgain")}
+                <a href="/login/">{t("logOut.logInAgainLink ")}</a>
+            </h4>
+        </div>
+    );
 }
