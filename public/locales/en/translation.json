@@ -44,5 +44,10 @@
         "sended": "Check your inbox, we just sent you an email.",
         "help2": "Enter the new password and repeat it again to confirm. If the passwords match you will be redirected to login."
     },
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "logOut": {
+        "thanks": "¡Gracias por usar nuestros servicios! Esperamos que su experiencia haya sido placentera.",
+        "logInAgain": "To log in again press ",
+        "logInAgainLink": "here"
+    }
 }
