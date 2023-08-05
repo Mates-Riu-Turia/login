@@ -8,6 +8,7 @@ import { NotFound } from "./components/notFound";
 import { ResetPassword } from "./components/resetPassword";
 import { Logout } from "./components/logout";
 import { Account } from "./components/account";
+import { Register } from "./components/register";
 
 export default function App() {
     const { t, i18n } = useTranslation();
@@ -34,6 +35,9 @@ export default function App() {
                 } />
                 <Route path="/login/account" element={
                     <Account t={t} />
+                } />
+                <Route path="/login/register" element={
+                    <Register t={t} />
                 } />
                 <Route path="*" element={
                     <NotFound t={t} />

@@ -74,3 +74,16 @@ export const resetPassword = async (password, token, tokenId) => {
     }
     return false;
 };
+
+export const sendRegisterEmail = async (email, password) => {
+    try {
+        app.emailPasswordAuth.registerUser({
+            email,
+            password
+        });
+    }
+    catch {
+        return true;
+    }
+    return false;
+}

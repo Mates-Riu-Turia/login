@@ -2,6 +2,7 @@ import { useState, React } from "react";
 import { Container, FloatingLabel, Form, Button, Alert, Spinner } from "react-bootstrap";
 
 import { login, app } from "../db";
+import { LoginBackground } from "./loginBackground";
 
 const Loading = ({ t }) => {
     return (
@@ -115,9 +116,7 @@ export function LoginForm({ t }) {
 
     return (
         <>
-            <div id="loginBackground" className="position-absolute end-0 w-50 d-none d-xl-block text-center">
-                <img className="img-fluid position-absolute top-50 translate-middle mb-5" src="/login/images/login.svg" alt="Login background illustration" />
-            </div>
+            <LoginBackground/>
             <CredentialsError t={t} show={credentialError} setShow={setCredentialError} />
             <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5">
                 <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
@@ -157,7 +156,7 @@ export function LoginForm({ t }) {
                     <hr className="my-4" />
                     <p className="text-center text-xl-start pb-3 mb-3">
                         {t("logIn.notAccountYet")}
-                        <a href="account-signup.html">{t("logIn.register")}</a>
+                        <a href="/login/register">{t("logIn.register")}</a>
                     </p>
                 </div>
             </Container >
