@@ -49,5 +49,29 @@
         "thanks": "Gràcies per usar els nostres serveis! Esperem que la seua experiència haja sigut plaent.",
         "logInAgain": "Per a tornar a iniciar sessió prema ",
         "logInAgainLink": "ací"
+    },
+    "register": {
+        "title": "Crear un nou compte",
+        "name": "Nom",
+        "surname": "Cognoms",
+        "courses": {
+            "1": "1r ESO",
+            "2": "2n ESO",
+            "3": "3r ESO",
+            "4": "4t ESO",
+            "5": "1r Batxillerat",
+            "6": "2n Batxillerat"
+        },
+        "btn": "Registrar-se",
+        "student": {
+            "student": "Compte d'Estudiant",
+            "title": "Crear compte d'Estudiant",
+            "help": " Introduïsca les seues dades personals, seguidament li enviarem un email amb un enlance per a acabar el procés.",
+            "course": "Curs",
+            "class": "Classe"
+        },
+        "teacher": {
+            "teacher": "Compte de Professor"
+        }
     }
 }
