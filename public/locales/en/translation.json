@@ -49,5 +49,29 @@
         "thanks": "¡Gracias por usar nuestros servicios! Esperamos que su experiencia haya sido placentera.",
         "logInAgain": "To log in again press ",
         "logInAgainLink": "here"
+    },
+    "register": {
+        "title": "Create a new account",
+        "name": "Name",
+        "surname": "Surname",
+        "courses": {
+            "1": "1º ESO",
+            "2": "2º ESO",
+            "3": "3º ESO",
+            "4": "4º ESO",
+            "5": "1st Baccalaureate",
+            "6": "2nd Baccalaureate"
+        },
+        "btn": "Sign up",
+        "student": {
+            "student": "Student Account",
+            "title": "Create Student Account",
+            "help": "Enter your personal data, then we will send you an email with a link to finish the process.",
+            "course": "Course",
+            "class": "Class"
+        },
+        "teacher": {
+            "teacher": "Teacher Account"
+        }
     }
 }
