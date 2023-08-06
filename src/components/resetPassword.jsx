@@ -50,21 +50,17 @@ function SendEmail({ t, setStatus }) {
         const form = event.currentTarget;
         event.preventDefault();
 
-        if (form.checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            setCredentialError(false);
+        setCredentialError(false);
 
-            const email = document.getElementById("email").value;
+        const email = document.getElementById("email").value;
 
-            if (await sendResetEmail(email)) {
-                // Manage errors
-                setCredentialError(true);
-            }
-            else {
-                // Change the status of the top level component
-                setStatus("emailSended");
-            }
+        if (await sendResetEmail(email)) {
+            // Manage errors
+            setCredentialError(true);
+        }
+        else {
+            // Change the status of the top level component
+            setStatus("emailSended");
         }
 
         setValidated(true);
@@ -174,27 +170,23 @@ function EmailRecived({ t, token, tokenId }) {
         const form = event.currentTarget;
         event.preventDefault();
 
-        if (form.checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            setCredentialError(false);
+        setCredentialError(false);
 
-            const password = document.getElementById("password").value;
-            const repassword = document.getElementById("repeat-password").value;
+        const password = document.getElementById("password").value;
+        const repassword = document.getElementById("repeat-password").value;
 
-            if (password === repassword) {
-                if (await resetPassword(password, token, tokenId)) {
-                    // Manage errors
-                    setCredentialError(true);
-                }
-                else {
-                    // Redirect to the login page
-                    window.location.href = "/login/"
-                }
+        if (password === repassword) {
+            if (await resetPassword(password, token, tokenId)) {
+                // Manage errors
+                setCredentialError(true);
             }
             else {
-                document.getElementById("repeat-password").value = "";
+                // Redirect to the login page
+                window.location.href = "/login/"
             }
+        }
+        else {
+            document.getElementById("repeat-password").value = "";
         }
 
         setValidated(true);
