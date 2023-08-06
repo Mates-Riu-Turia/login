@@ -4,6 +4,7 @@ import { Container, Form, Button, FloatingLabel, Alert } from "react-bootstrap";
 import {
     sendResetEmail, resetPassword
 } from "../db";
+import { LoginBackground } from "./loginBackground";
 
 export function ResetPassword({ t }) {
     // Set the title of the page
@@ -72,9 +73,7 @@ function SendEmail({ t, setStatus }) {
 
     return (
         <>
-            <div id="loginBackground" className="position-absolute end-0 w-50 d-none d-xl-block text-center">
-                <img className="img-fluid position-absolute top-50 translate-middle mb-5" src="/login/images/login.svg" alt="Login background illustration" />
-            </div>
+            <LoginBackground />
             <CredentialsError t={t} show={credentialError} setShow={setCredentialError} />
             <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5 mb-5">
                 <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
@@ -104,9 +103,7 @@ function SendEmail({ t, setStatus }) {
 function EmailSended({ t }) {
     return (
         <>
-            <div id="loginBackground" className="position-absolute end-0 w-50 d-none d-xl-block text-center">
-                <img className="img-fluid position-absolute top-50 translate-middle mb-5" src="/login/images/login.svg" alt="Login background illustration" />
-            </div>
+            <LoginBackground />
             <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5 mb-5">
                 <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
                     <h3>{t("resetPassword.sended")}</h3>
@@ -205,9 +202,7 @@ function EmailRecived({ t, token, tokenId }) {
 
     return (
         <>
-            <div id="loginBackground" className="position-absolute end-0 w-50 d-none d-xl-block text-center">
-                <img className="img-fluid position-absolute top-50 translate-middle mb-5" src="/login/images/login.svg" alt="Login background illustration" />
-            </div>
+            <LoginBackground />
             <CredentialsError t={t} show={credentialError} setShow={setCredentialError} />
             <Container className="d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5 mb-5">
                 <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: 526 }}>
