@@ -129,6 +129,7 @@ function RegisterStudent({ t }) {
 
             <h1 className="text-center">{t("register.student.title")}</h1>
             <Alert variant="info">
+                <i className="bi bi-info-circle-fill"></i>
                 {t("register.student.help")}
             </Alert>
 
@@ -178,15 +179,15 @@ function RegisterStudent({ t }) {
                     <Col>
                         <FloatingLabel
                             controlId="class"
-                            label={t("register.student.course")}
+                            label={t("register.student.class")}
                             className="mb-3"
                         >
                             <Form.Select className="mb-3">
-                                <option value="A">{t("register.classes.A")}</option>
-                                <option value="B">{t("register.classes.B")}</option>
-                                <option value="C">{t("register.classes.C")}</option>
-                                <option value="D">{t("register.classes.D")}</option>
-                                <option value="E">{t("register.classes.E")}</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
                             </Form.Select>
                             <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
                         </FloatingLabel>

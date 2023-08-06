@@ -49,5 +49,29 @@
         "thanks": "¡Gracias por usar nuestros servicios! Esperamos que su experiencia haya sido placentera.",
         "logInAgain": "Para volver a iniciar sesión pulse ",
         "logInAgainLink": "aquí"
+    },
+    "register": {
+        "title": "Crear una nueva cuenta",
+        "name": "Nombre",
+        "surname": "Apellidos",
+        "courses": {
+            "1": "1º ESO",
+            "2": "2º ESO",
+            "3": "3º ESO",
+            "4": "4º ESO",
+            "5": "1º Bachillerato",
+            "6": "2º Bachillerato"
+        },
+        "btn": "Registrarse",
+        "student": {
+            "student": "Cuenta de Estudiante",
+            "title": "Crear cuenta de Estudiante",
+            "help": " Introduzca sus datos personales, seguidamente le enviaremos un email con un enlance para terminar el proceso.",
+            "course": "Curso",
+            "class": "Clase"
+        },
+        "teacher": {
+            "teacher": "Cuenta de Profesor"
+        }
     }
 }
