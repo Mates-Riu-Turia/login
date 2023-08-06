@@ -214,7 +214,7 @@ function EmailRecived({ t, token, tokenId }) {
                         <FloatingLabel controlId="password" label={t("password")} className="mb-3">
                             <Form.Control required type={passwordVisibility.status} placeholder="" />
 
-                            <div style={{ position: "relative" }}>
+                            <div className="position-relative">
                                 <button className="password-toggle" type="button" onClick={changePasswordVisibility}>
                                     <i className={passwordVisibility.icon}></i>
                                 </button>
@@ -227,7 +227,7 @@ function EmailRecived({ t, token, tokenId }) {
                         <FloatingLabel controlId="repeat-password" label={t("password")}>
                             <Form.Control required type={passwordVisibility2.status} placeholder="" />
 
-                            <div style={{ position: "relative" }}>
+                            <div className="position-relative">
                                 <button className="password-toggle" type="button" onClick={changePasswordVisibility2}>
                                     <i className={passwordVisibility2.icon}></i>
                                 </button>
