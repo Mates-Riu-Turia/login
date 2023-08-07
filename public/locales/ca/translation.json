@@ -27,7 +27,9 @@
     "verify": {
         "ok": "Sembla correcte!",
         "email": "Per favor, proveïsca un email vàlid.",
-        "password": "Per favor, proveïsca una contrasenya vàlida."
+        "password": "Per favor, proveïsca una contrasenya vàlida.",
+        "name": "Per favor, proveïsca un nom vàlid.",
+        "surname": "Per favor, proveïsca un cognom vàlid."
     },
     "email": "Email",
     "password": "Contrasenya",
@@ -54,6 +56,7 @@
         "title": "Crear un nou compte",
         "name": "Nom",
         "surname": "Cognoms",
+        "error": "Va haver-hi un error inesperat al registrar l'usuari!",
         "courses": {
             "1": "1r ESO",
             "2": "2n ESO",
