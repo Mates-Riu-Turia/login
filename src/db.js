@@ -15,8 +15,6 @@ export const login = async (email, password) => {
         // Authenticate the user for the Login App
         const user = await app.logIn(creadentials);
 
-        generateAvatar(user.customData.name);
-
         // Log in the user via custom function for the rest of the apps
         let apps = [];
         for (const otherId of otherIds) {
@@ -28,6 +26,14 @@ export const login = async (email, password) => {
             apps.push(otherApp.logIn(otherCredentials));
         }
         await Promise.all(apps);
+
+        if (localStorage.getItem("name") !== null) {
+            if(await saveTempData()) {
+                throw new Error("");
+            }
+        }
+
+        generateAvatar(user.customData.name + user.customData.surname);
     }
     catch {
         return true;
@@ -75,15 +81,64 @@ export const resetPassword = async (password, token, tokenId) => {
     return false;
 };
 
-export const sendRegisterEmail = async (email, password) => {
+export const sendRegisterEmail = async (email, password, name, surname, course, classVal) => {
     try {
-        app.emailPasswordAuth.registerUser({
+        await app.emailPasswordAuth.registerUser({
             email,
             password
         });
+
+        // Save the temporal data in the localStorage
+        localStorage.setItem("name", name);
+        localStorage.setItem("surname", surname);
+        localStorage.setItem("course", course);
+        localStorage.setItem("class", classVal);
     }
     catch {
         return true;
     }
     return false;
 }
+
+export const finishRegister = async (token, tokenId) => {
+    try {
+        await app.emailPasswordAuth.confirmUser({ token, tokenId });
+    }
+    catch {
+        return true;
+    }
+    return false;
+}
+
+const saveTempData = async () => {
+    try {
+        const mongo = app.currentUser.mongoClient("mongodb-atlas");
+        const collection = mongo.db("user-data").collection("user-data");
+
+        const name = localStorage.getItem("name");
+        const surname = localStorage.getItem("surname");
+        const course = localStorage.getItem("course");
+        const classVal = localStorage.getItem("class");
+
+        await collection.updateOne(
+            { user_id: app.currentUser.id },
+            {
+                $set: {
+                    name,
+                    surname,
+                    course,
+                    class: classVal
+                }
+            }
+        );
+
+        localStorage.removeItem("name");
+        localStorage.removeItem("surname");
+        localStorage.removeItem("course");
+        localStorage.removeItem("class");
+    }
+    catch {
+        return true;
+    }
+    return false;
+};
