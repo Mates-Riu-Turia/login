@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Tabs, Tab, Alert, Form, FloatingLabel, Row, Col, Button } from "react-bootstrap";
 import { LoginBackground } from "./loginBackground";
+import { finishRegister, sendRegisterEmail } from "../db";
+import { EmailSended } from "./emailSended";
 
 export function Register({ t }) {
     // Set the title of the page
@@ -36,9 +38,9 @@ export function Register({ t }) {
         case "sendEmail":
             return <SendEmail t={t} setStatus={setStatus} />;
         case "emailSended":
-
+            return <EmailSended t={t} />
         case "emailRecived":
-
+            return <EmailRecived t={t} token={token} tokenId={tokenId} />;
         default:
             return <SendEmail t={t} setStatus={setStatus} />;
     };
@@ -56,7 +58,7 @@ function SendEmail({ t, setStatus }) {
                 className="mt-3 mb-3" style={{ maxWidth: "960px" }}
             >
                 <Tab eventKey="student" title={t("register.student.student")}>
-                    <RegisterStudent t={t} />
+                    <RegisterStudent t={t} setStatus={setStatus} />
                 </Tab>
                 <Tab eventKey="profile" title={t("register.teacher.teacher")}>
                 </Tab>
@@ -65,12 +67,12 @@ function SendEmail({ t, setStatus }) {
     );
 }
 
-function RegisterStudent({ t }) {
+function RegisterStudent({ t, setStatus }) {
     // Show an error
     const [registerError, setRegisterError] = useState(false);
 
-    const [validated, setValidated] = useState(false);
 
+    // This states and functions are for showing or not the password in plain text
     const [passwordVisibility, setPasswordVisibility] = useState({
         status: "password",
         icon: "bi bi-eye-fill",
@@ -121,7 +123,41 @@ function RegisterStudent({ t }) {
         }
     };
 
-    const handleSubmit = () => { };
+    // This state saves if the form was processed or not
+    const [validated, setValidated] = useState(false);
+
+    // This function validates the form
+    const handleSubmit = async (event) => {
+        // Don't let the browser do its own check
+        event.preventDefault();
+        // Remove previous errors
+        setRegisterError(false);
+
+        // Get all the personal information
+        const name = document.getElementById("name").value;
+        const surname = document.getElementById("surname").value;
+        const course = document.getElementById("course").value;
+        const classVal = document.getElementById("class").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const repassword = document.getElementById("repeat-password");
+
+        // Check if passwords match
+        if (password != repassword.value) {
+            repassword.value = "";
+        }
+        else {
+            // Send the email and check for errors
+            if (await sendRegisterEmail(email, password, name, surname, course, classVal)) {
+                setRegisterError(true);
+            }
+            else {
+                setStatus("emailSended");
+            }
+        }
+
+        setValidated(true);
+    };
 
     return (
         <div style={{ maxWidth: "960px" }}>
@@ -244,6 +280,21 @@ function RegisterTeacher({ t }) {
     return (
         <>
         </>
+    );
+}
+
+function EmailRecived({ t, token, tokenId }) {
+    useEffect(() => {
+        const finishRegisterSync = async (token, tokenId) => {
+            if (!(await finishRegister(token, tokenId))) {
+                window.location.href = "/login/";
+            }
+        };
+        finishRegisterSync(token, tokenId);
+    }, [token, tokenId]);
+
+    return (
+        <RegisterError t={t} show={true} setShow={() => { }} />
     );
 }
 
