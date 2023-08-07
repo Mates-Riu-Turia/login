@@ -27,7 +27,9 @@
     "verify": {
         "ok": "Looks good!",
         "email": "Please, provide a valid email.",
-        "password": "Please, provide a valid password."
+        "password": "Please, provide a valid password.",
+        "name": "Please, provide a valid name.",
+        "surname": "Please, provide a valid surname."
     },
     "email": "Email",
     "password": "Password",
@@ -54,6 +56,7 @@
         "title": "Create a new account",
         "name": "Name",
         "surname": "Surname",
+        "error": "An error happened when registering the user!",
         "courses": {
             "1": "1º ESO",
             "2": "2º ESO",
