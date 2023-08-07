@@ -27,7 +27,9 @@
     "verify": {
         "ok": "¡Parece correcto!",
         "email": "Por favor, provea un email válido.",
-        "password": "Por favor, provea una constraseña válida."
+        "password": "Por favor, provea una constraseña válida.",
+        "name": "Por favor, provea un nombre válido.",
+        "surname": "Por favor, provea un apellido válido."
     },
     "email": "Email",
     "password": "Contraseña",
@@ -54,6 +56,7 @@
         "title": "Crear una nueva cuenta",
         "name": "Nombre",
         "surname": "Apellidos",
+        "error": "!Hubo un error inesperado al registrar el usuario!",
         "courses": {
             "1": "1º ESO",
             "2": "2º ESO",
