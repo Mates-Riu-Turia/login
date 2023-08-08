@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Tabs, Tab, Alert, Form, FloatingLabel, Row, Col, Button } from "react-bootstrap";
 import { LoginBackground } from "./loginBackground";
-import { finishRegister, sendRegisterEmail } from "../db";
+import { finishRegister, sendRegisterEmail, resendConfirmationEmail } from "../db";
 import { EmailSended } from "./emailSended";
 
 export function Register({ t }) {
@@ -33,22 +33,25 @@ export function Register({ t }) {
         }
     }, [token, tokenId, setStatus]);
 
+    // This state saves the email in case of resend
+    const [confirmationEmail, setConfirmationEmail] = useState("");
+
     // Render the correct components
     switch (status) {
         case "sendEmail":
-            return <SendEmail t={t} setStatus={setStatus} />;
+            return <SendEmail t={t} setStatus={setStatus} setConfirmationEmail={setConfirmationEmail} />;
         case "emailSended":
-            return <EmailSended t={t} />
+            return <EmailSended t={t} resend={() => resendConfirmationEmail(confirmationEmail)} />
         case "emailRecived":
             return <EmailRecived t={t} token={token} tokenId={tokenId} />;
         default:
-            return <SendEmail t={t} setStatus={setStatus} />;
+            return <SendEmail t={t} setStatus={setStatus} setConfirmationEmail={setConfirmationEmail} />;
     };
 }
 
 // The SendEmail component and subcomponents
 
-function SendEmail({ t, setStatus }) {
+function SendEmail({ t, setStatus, setConfirmationEmail }) {
     return (
         <>
             <LoginBackground />
@@ -58,7 +61,7 @@ function SendEmail({ t, setStatus }) {
                 className="mt-3 mb-3" style={{ maxWidth: "960px" }}
             >
                 <Tab eventKey="student" title={t("register.student.student")}>
-                    <RegisterStudent t={t} setStatus={setStatus} />
+                    <RegisterStudent t={t} setStatus={setStatus} setConfirmationEmail={setConfirmationEmail} />
                 </Tab>
                 <Tab eventKey="profile" title={t("register.teacher.teacher")}>
                 </Tab>
@@ -67,7 +70,7 @@ function SendEmail({ t, setStatus }) {
     );
 }
 
-function RegisterStudent({ t, setStatus }) {
+function RegisterStudent({ t, setStatus, setConfirmationEmail }) {
     // Show an error
     const [registerError, setRegisterError] = useState(false);
 
@@ -152,6 +155,7 @@ function RegisterStudent({ t, setStatus }) {
                 setRegisterError(true);
             }
             else {
+                setConfirmationEmail(email);
                 setStatus("emailSended");
             }
         }

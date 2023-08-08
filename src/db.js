@@ -28,7 +28,7 @@ export const login = async (email, password) => {
         await Promise.all(apps);
 
         if (localStorage.getItem("name") !== null) {
-            if(await saveTempData()) {
+            if (await saveTempData()) {
                 throw new Error("");
             }
         }
@@ -142,3 +142,7 @@ const saveTempData = async () => {
     }
     return false;
 };
+
+export const resendConfirmationEmail = async (email) => {
+    await app.emailPasswordAuth.resendConfirmationEmail({ email });
+}
