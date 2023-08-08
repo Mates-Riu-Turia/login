@@ -66,6 +66,12 @@
             "6": "2nd Baccalaureate"
         },
         "btn": "Sign up",
+        "gender": {
+            "gender": "Gender",
+            "man": "Man",
+            "woman": "Woman",
+            "undefined": "Undefined"
+        },
         "student": {
             "student": "Student Account",
             "title": "Create Student Account",
