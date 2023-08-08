@@ -66,6 +66,12 @@
             "6": "2n Batxillerat"
         },
         "btn": "Registrar-se",
+        "gender": {
+            "gender": "Gènere",
+            "man": "Home",
+            "woman": "Dona",
+            "undefined": "No definit"
+        },
         "student": {
             "student": "Compte d'Estudiant",
             "title": "Crear compte d'Estudiant",
