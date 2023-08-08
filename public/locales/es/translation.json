@@ -76,5 +76,6 @@
         "teacher": {
             "teacher": "Cuenta de Profesor"
         }
-    }
+    },
+    "resendEmail": "Reeenviar email"
 }
