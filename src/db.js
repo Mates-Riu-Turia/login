@@ -81,7 +81,7 @@ export const resetPassword = async (password, token, tokenId) => {
     return false;
 };
 
-export const sendRegisterEmail = async (email, password, name, surname, course, classVal) => {
+export const sendRegisterEmail = async (email, password, name, surname, gender, course, classVal) => {
     try {
         await app.emailPasswordAuth.registerUser({
             email,
@@ -91,6 +91,7 @@ export const sendRegisterEmail = async (email, password, name, surname, course, 
         // Save the temporal data in the localStorage
         localStorage.setItem("name", name);
         localStorage.setItem("surname", surname);
+        localStorage.setItem("gender", gender);
         localStorage.setItem("course", course);
         localStorage.setItem("class", classVal);
     }
@@ -117,6 +118,7 @@ const saveTempData = async () => {
 
         const name = localStorage.getItem("name");
         const surname = localStorage.getItem("surname");
+        const gender = localStorage.getItem("gender");
         const course = localStorage.getItem("course");
         const classVal = localStorage.getItem("class");
 
@@ -126,6 +128,7 @@ const saveTempData = async () => {
                 $set: {
                     name,
                     surname,
+                    gender,
                     course,
                     class: classVal
                 }
@@ -134,6 +137,7 @@ const saveTempData = async () => {
 
         localStorage.removeItem("name");
         localStorage.removeItem("surname");
+        localStorage.removeItem("gender")
         localStorage.removeItem("course");
         localStorage.removeItem("class");
     }

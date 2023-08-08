@@ -139,6 +139,7 @@ function RegisterStudent({ t, setStatus, setConfirmationEmail }) {
         // Get all the personal information
         const name = document.getElementById("name").value;
         const surname = document.getElementById("surname").value;
+        const gender = document.getElementById("gender").value;
         const course = document.getElementById("course").value;
         const classVal = document.getElementById("class").value;
         const email = document.getElementById("email").value;
@@ -151,7 +152,7 @@ function RegisterStudent({ t, setStatus, setConfirmationEmail }) {
         }
         else {
             // Send the email and check for errors
-            if (await sendRegisterEmail(email, password, name, surname, course, classVal)) {
+            if (await sendRegisterEmail(email, password, name, surname, gender, course, classVal)) {
                 setRegisterError(true);
             }
             else {
@@ -197,6 +198,20 @@ function RegisterStudent({ t, setStatus, setConfirmationEmail }) {
                             <Form.Control.Feedback type="invalid">{t("verify.surname")}</Form.Control.Feedback>
                         </FloatingLabel>
                     </Col>
+                </Row>
+                <Row>
+                    <FloatingLabel
+                        controlId="gender"
+                        label={t("register.gender.gender")}
+                        className="mb-3"
+                    >
+                        <Form.Select className="mb-3">
+                            <option value="M">{t("register.gender.men")}</option>
+                            <option value="W">{t("register.gender.women")}</option>
+                            <option value="U">{t("register.gender.undefined")}</option>
+                        </Form.Select>
+                        <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
+                    </FloatingLabel>
                 </Row>
                 <Row>
                     <Col>
