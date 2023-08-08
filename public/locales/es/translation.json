@@ -66,6 +66,12 @@
             "6": "2º Bachillerato"
         },
         "btn": "Registrarse",
+        "gender": {
+            "gender": "Género",
+            "man": "Hombre",
+            "woman": "Mujer",
+            "undefined": "No definido"
+        },
         "student": {
             "student": "Cuenta de Estudiante",
             "title": "Crear cuenta de Estudiante",

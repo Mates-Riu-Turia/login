@@ -206,8 +206,8 @@ function RegisterStudent({ t, setStatus, setConfirmationEmail }) {
                         className="mb-3"
                     >
                         <Form.Select className="mb-3">
-                            <option value="M">{t("register.gender.men")}</option>
-                            <option value="W">{t("register.gender.women")}</option>
+                            <option value="M">{t("register.gender.man")}</option>
+                            <option value="W">{t("register.gender.woman")}</option>
                             <option value="U">{t("register.gender.undefined")}</option>
                         </Form.Select>
                         <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
