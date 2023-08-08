@@ -76,5 +76,6 @@
         "teacher": {
             "teacher": "Teacher Account"
         }
-    }
+    },
+    "resendEmail": "Resend Email"
 }
