@@ -25,14 +25,16 @@ export function ResetPassword({ t }) {
     useEffect(() => {
         if (token && tokenId) {
             setStatus("emailRecived");
-        }
+        } 
     }, [token, tokenId, setStatus]);
+
+    const [resetPasswordEmail, setResetPasswordEmail] = useState("");
 
     switch (status) {
         case "sendEmail":
-            return <SendEmail t={t} setStatus={setStatus} />;
+            return <SendEmail t={t} setStatus={setStatus} setResetPasswordEmail={setResetPasswordEmail} />;
         case "emailSended":
-            return <EmailSended t={t} />;
+            return <EmailSended t={t} resend={() => sendResetEmail(resetPasswordEmail)}/>;
         case "emailRecived":
             return <EmailRecived t={t} token={token} tokenId={tokenId} />;
         default:
@@ -40,7 +42,7 @@ export function ResetPassword({ t }) {
     }
 }
 
-function SendEmail({ t, setStatus }) {
+function SendEmail({ t, setStatus, setResetPasswordEmail }) {
     // Show an error
     const [credentialError, setCredentialError] = useState(false);
 
@@ -60,6 +62,8 @@ function SendEmail({ t, setStatus }) {
             setCredentialError(true);
         }
         else {
+            // Save the user's email in case of retrying
+            setResetPasswordEmail(email);
             // Change the status of the top level component
             setStatus("emailSended");
         }
