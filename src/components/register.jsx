@@ -648,9 +648,9 @@ function CoursesList({ t, courses, setCourses }) {
                             <option value='music'>{t('register.subjects.music')}</option>
                             <option value='guidance_tutoring'>{t('register.subjects.guidance_tutoring')}</option>
                             <option value='art'>{t('register.subjects.art')}</option>
-                            <option value='religion'>{t('register.subjects.religionç')}</option>
+                            <option value='religion'>{t('register.subjects.religion')}</option>
                             <option value='technology'>{t('register.subjects.technology')}</option>
-                            <option value='valencia'>{t('register.subjects.valencia')}</option>
+                            <option value='valencia'>{t('register.subjects.valencian')}</option>
                             <option value='ethical_values'>{t('register.subjects.ethical_values')}</option>
                         </Form.Select>
                         <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>

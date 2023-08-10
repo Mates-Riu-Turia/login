@@ -57,6 +57,8 @@
         "name": "Nom",
         "surname": "Cognoms",
         "error": "Va haver-hi un error inesperat al registrar l'usuari!",
+        "course": "Curs",
+        "class": "Classe",
         "courses": {
             "1": "1r ESO",
             "2": "2n ESO",
@@ -64,6 +66,33 @@
             "4": "4t ESO",
             "5": "1r Batxillerat",
             "6": "2n Batxillerat"
+        },
+        "subjects": {
+            "subjects": "Assignatura",
+            "add_course": "Afegir nou curs",
+            "applied_anatomy": "Anatomia Aplicada",
+            "english": "Inglés",
+            "biology_geology": "Biologia i Geologia",
+            "spanish": "Español",
+            "classic_culture": "Cultura clàssica",
+            "technical_drawing": "Dibuix tècnic",
+            "pe": "Educació física",
+            "philosophy": "Filosofia",
+            "physics_chemistry": "Física i Química",
+            "french": "Francés",
+            "geography_history": "Geografia i Història",
+            "greek": "Grec",
+            "computer_science": "Ciències de la Computació",
+            "universal_literature": "Literatura Universal",
+            "latin": "Llatí",
+            "maths": "Matemàtiques",
+            "music": "Música",
+            "guidance_tutoring": "Orientació i Tutoria",
+            "art": "Art",
+            "religion": "Religió",
+            "technology": "Tecnologia",
+            "valencian": "Valencià",
+            "ethical_values": "Valors Ètics"
         },
         "btn": "Registrar-se",
         "gender": {
@@ -75,12 +104,12 @@
         "student": {
             "student": "Compte d'Estudiant",
             "title": "Crear compte d'Estudiant",
-            "help": " Introduïsca les seues dades personals, seguidament li enviarem un email amb un enlance per a acabar el procés.",
-            "course": "Curs",
-            "class": "Classe"
+            "help": " Introduïsca les seues dades personals, seguidament li enviarem un email amb un enlance per a acabar el procés."
         },
         "teacher": {
-            "teacher": "Compte de Professor"
+            "teacher": "Compte de Professor",
+            "title": "Crear compte de Professor",
+            "help": " Introduïsca les seues dades personals, seguidament li enviarem un email amb un enlance per a acabar el procés. La primera contrasenya és el codi d'accés. Les dues últimes han de coincidir, serà la de l'inici de sessió."
         }
     },
     "resendEmail": "Reexpedir email"
