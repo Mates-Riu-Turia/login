@@ -579,7 +579,7 @@ function CoursesList({ t, courses, setCourses }) {
                             courseId++;
                             return (
                                 <ListGroup.Item key={courseId}>
-                                    {t("register.teacher.subjects." + course.subject) + ", " + t("register.courses." + course.course) + " " + course.class}
+                                    {t("register.subjects." + course.subject) + ", " + t("register.courses." + course.course) + " " + course.class}
                                     <div className="position-absolute top-50 start-100 translate-middle" onClick={() => removeCourse(courseId)}><i className="bi bi-trash"></i></div>
                                 </ListGroup.Item>
                             );
@@ -625,33 +625,33 @@ function CoursesList({ t, courses, setCourses }) {
                 <Col>
                     <FloatingLabel
                         controlId="subject-course"
-                        label={t("register.teacher.subjects")}
+                        label={t("register.subjects.subjects")}
                         className="mb-3"
                     >
                         <Form.Select className="mb-3">
-                            <option value='applied_anatomy'>{t('register.teacher.applied_anatomy')}</option>
-                            <option value='english'>{t('register.teacher.english')}</option>
-                            <option value='biology_geology'>{t('register.teacher.biology_geology')}</option>
-                            <option value='spanish'>{t('register.teacher.spanish')}</option>
-                            <option value='classic_culture'>{t('register.teacher.classic_culture')}</option>
-                            <option value='technical_drawing'>{t('register.teacher.technical_drawing')}</option>
-                            <option value='pe'>{t('register.teacher.pe')}</option>
-                            <option value='philosophy'>{t('register.teacher.philosophy')}</option>
-                            <option value='physics_chemistry'>{t('register.teacher.physics_chemistry')}</option>
-                            <option value='french'>{t('register.teacher.french')}</option>
-                            <option value='geography_history'>{t('register.teacher.geography_history')}</option>
-                            <option value='greek'>{t('register.teacher.greek')}</option>
-                            <option value='computer_science'>{t('register.teacher.computer_science')}</option>
-                            <option value='universal_literature'>{t('register.teacher.universal_literature')}</option>
-                            <option value='latin'>{t('register.teacher.latin')}</option>
-                            <option value='maths'>{t('register.teacher.maths')}</option>
-                            <option value='music'>{t('register.teacher.music')}</option>
-                            <option value='guidance_tutoring'>{t('register.teacher.guidance_tutoring')}</option>
-                            <option value='art'>{t('register.teacher.art')}</option>
-                            <option value='religion'>{t('register.teacher.religionç')}</option>
-                            <option value='technology'>{t('register.teacher.technology')}</option>
-                            <option value='valencia'>{t('register.teacher.valencia')}</option>
-                            <option value='ethical_values'>{t('register.teacher.ethical_values')}</option>
+                            <option value='applied_anatomy'>{t('register.subjects.applied_anatomy')}</option>
+                            <option value='english'>{t('register.subjects.english')}</option>
+                            <option value='biology_geology'>{t('register.subjects.biology_geology')}</option>
+                            <option value='spanish'>{t('register.subjects.spanish')}</option>
+                            <option value='classic_culture'>{t('register.subjects.classic_culture')}</option>
+                            <option value='technical_drawing'>{t('register.subjects.technical_drawing')}</option>
+                            <option value='pe'>{t('register.subjects.pe')}</option>
+                            <option value='philosophy'>{t('register.subjects.philosophy')}</option>
+                            <option value='physics_chemistry'>{t('register.subjects.physics_chemistry')}</option>
+                            <option value='french'>{t('register.subjects.french')}</option>
+                            <option value='geography_history'>{t('register.subjects.geography_history')}</option>
+                            <option value='greek'>{t('register.subjects.greek')}</option>
+                            <option value='computer_science'>{t('register.subjects.computer_science')}</option>
+                            <option value='universal_literature'>{t('register.subjects.universal_literature')}</option>
+                            <option value='latin'>{t('register.subjects.latin')}</option>
+                            <option value='maths'>{t('register.subjects.maths')}</option>
+                            <option value='music'>{t('register.subjects.music')}</option>
+                            <option value='guidance_tutoring'>{t('register.subjects.guidance_tutoring')}</option>
+                            <option value='art'>{t('register.subjects.art')}</option>
+                            <option value='religion'>{t('register.subjects.religionç')}</option>
+                            <option value='technology'>{t('register.subjects.technology')}</option>
+                            <option value='valencia'>{t('register.subjects.valencia')}</option>
+                            <option value='ethical_values'>{t('register.subjects.ethical_values')}</option>
                         </Form.Select>
                         <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
                     </FloatingLabel>
@@ -659,7 +659,7 @@ function CoursesList({ t, courses, setCourses }) {
             </Row>
             <Row>
                 <Col>
-                    <Button variant="success" className="w-100 mb-3" onClick={addCourse}>{t("register.teacher.add_course")}</Button>
+                    <Button variant="success" className="w-100 mb-3" onClick={addCourse}>{t("register.subjects.add_course")}</Button>
                 </Col>
             </Row>
         </>

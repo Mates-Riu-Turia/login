@@ -57,6 +57,8 @@
         "name": "Nombre",
         "surname": "Apellidos",
         "error": "!Hubo un error inesperado al registrar el usuario!",
+        "course": "Curso",
+        "class": "Clase",
         "courses": {
             "1": "1º ESO",
             "2": "2º ESO",
@@ -64,6 +66,33 @@
             "4": "4º ESO",
             "5": "1º Bachillerato",
             "6": "2º Bachillerato"
+        },
+        "subjects": {
+            "subjects": "Asignatura",
+            "add_course": "Añadir nuevo curso",
+            "applied_anatomy": "Anatomía Aplicada",
+            "english": "Inglés",
+            "biology_geology": "Biología y Geología",
+            "spanish": "Español",
+            "classic_culture": "Cultura clásica",
+            "technical_drawing": "Dibujo técnico",
+            "pe": "Educación física",
+            "philosophy": "Filosofía",
+            "physics_chemistry": "Física y Química",
+            "french": "Francés",
+            "geography_history": "Geografía e Historia",
+            "greek": "Griego",
+            "computer_science": "Ciencias de la Computación",
+            "universal_literature": "Literatura Universal",
+            "latin": "Latín",
+            "maths": "Matemáticas",
+            "music": "Música",
+            "guidance_tutoring": "Orientación y Tutoría",
+            "art": "Arte",
+            "religion": "Religión",
+            "technology": "Tecnología",
+            "valencian": "Valenciano",
+            "ethical_values": "Valores Éticos"
         },
         "btn": "Registrarse",
         "gender": {
@@ -75,12 +104,12 @@
         "student": {
             "student": "Cuenta de Estudiante",
             "title": "Crear cuenta de Estudiante",
-            "help": " Introduzca sus datos personales, seguidamente le enviaremos un email con un enlance para terminar el proceso.",
-            "course": "Curso",
-            "class": "Clase"
+            "help": " Introduzca sus datos personales, seguidamente le enviaremos un email con un enlance para terminar el proceso."
         },
         "teacher": {
-            "teacher": "Cuenta de Profesor"
+            "teacher": "Cuenta de Profesor",
+            "title": "Crear cuenta de Profesor",
+            "help": " Introduzca sus datos personales, seguidamente le enviaremos un email con un enlance para terminar el proceso. La primera contraseña es el código de acceso. Las dos últimas deben coincidir, será la del inicio de sesión."
         }
     },
     "resendEmail": "Reeenviar email"
