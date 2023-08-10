@@ -6,6 +6,7 @@ import {
 } from "../db";
 import { LoginBackground } from "./loginBackground";
 import { EmailSended } from "./emailSended";
+import { usePassword } from "../hooks/usePassword";
 
 export function ResetPassword({ t }) {
     // Set the title of the page
@@ -104,56 +105,10 @@ function SendEmail({ t, setStatus, setResetPasswordEmail }) {
 function EmailRecived({ t, token, tokenId }) {
     const [credentialError, setCredentialError] = useState(false);
 
-    const [passwordVisibility, setPasswordVisibility] = useState({
-        status: "password",
-        icon: "bi bi-eye-fill",
-    })
+    const [passwordVisibility, changePasswordVisibility] = usePassword();
 
-    const changePasswordVisibility = () => {
-        if (passwordVisibility.status == "password") {
-            setPasswordVisibility(
-                {
-                    status: "text",
-                    icon: "bi bi-eye-slash-fill",
-                }
-            );
-        }
-
-        else {
-            setPasswordVisibility(
-                {
-                    status: "password",
-                    icon: "bi bi-eye-fill",
-                }
-            );
-        }
-    };
-
-    const [passwordVisibility2, setPasswordVisibility2] = useState({
-        status: "password",
-        icon: "bi bi-eye-fill",
-    })
-
-    const changePasswordVisibility2 = () => {
-        if (passwordVisibility2.status == "password") {
-            setPasswordVisibility2(
-                {
-                    status: "text",
-                    icon: "bi bi-eye-slash-fill",
-                }
-            );
-        }
-
-        else {
-            setPasswordVisibility2(
-                {
-                    status: "password",
-                    icon: "bi bi-eye-fill",
-                }
-            );
-        }
-    };
-
+    const [passwordVisibility2, changePasswordVisibility2] = usePassword();
+    
     // Validate the form
     const [validated, setValidated] = useState(false);
 

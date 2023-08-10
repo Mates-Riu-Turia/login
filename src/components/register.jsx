@@ -3,6 +3,7 @@ import { Tabs, Tab, Alert, Form, FloatingLabel, Row, Col, Button, ListGroup } fr
 import { LoginBackground } from "./loginBackground";
 import { finishRegister, sendRegisterEmail, resendConfirmationEmail } from "../db";
 import { EmailSended } from "./emailSended";
+import { usePassword } from "../hooks/usePassword";
 
 export function Register({ t }) {
     // Set the title of the page
@@ -309,80 +310,9 @@ function RegisterTeacher({ t, setStatus, setConfirmationEmail }) {
     const [registerError, setRegisterError] = useState(false);
 
     // This states and functions are for showing or not the password in plain text
-    const [passwordVisibility, setPasswordVisibility] = useState({
-        status: "password",
-        icon: "bi bi-eye-fill",
-    })
-
-    const changePasswordVisibility = () => {
-        if (passwordVisibility.status == "password") {
-            setPasswordVisibility(
-                {
-                    status: "text",
-                    icon: "bi bi-eye-slash-fill",
-                }
-            );
-        }
-
-        else {
-            setPasswordVisibility(
-                {
-                    status: "password",
-                    icon: "bi bi-eye-fill",
-                }
-            );
-        }
-    };
-
-    const [passwordVisibility2, setPasswordVisibility2] = useState({
-        status: "password",
-        icon: "bi bi-eye-fill",
-    })
-
-    const changePasswordVisibility2 = () => {
-        if (passwordVisibility2.status == "password") {
-            setPasswordVisibility2(
-                {
-                    status: "text",
-                    icon: "bi bi-eye-slash-fill",
-                }
-            );
-        }
-
-        else {
-            setPasswordVisibility2(
-                {
-                    status: "password",
-                    icon: "bi bi-eye-fill",
-                }
-            );
-        }
-    };
-
-    const [passwordVisibility3, setPasswordVisibility3] = useState({
-        status: "password",
-        icon: "bi bi-eye-fill",
-    })
-
-    const changePasswordVisibility3 = () => {
-        if (passwordVisibility3.status == "password") {
-            setPasswordVisibility3(
-                {
-                    status: "text",
-                    icon: "bi bi-eye-slash-fill",
-                }
-            );
-        }
-
-        else {
-            setPasswordVisibility3(
-                {
-                    status: "password",
-                    icon: "bi bi-eye-fill",
-                }
-            );
-        }
-    };
+    const [passwordVisibility, changePasswordVisibility] = usePassword();
+    const [passwordVisibility2, changePasswordVisibility2] = usePassword();
+    const [passwordVisibility3, changePasswordVisibility3] = usePassword();
 
     // This state saves if the form was processed or not
     const [validated, setValidated] = useState(false);
