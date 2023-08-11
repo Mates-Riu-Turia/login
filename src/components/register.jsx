@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Tabs, Tab, Alert, Form, FloatingLabel, Row, Col, Button, ListGroup } from "react-bootstrap";
 import { LoginBackground } from "./loginBackground";
-import { finishRegister, sendRegisterEmail, resendConfirmationEmail } from "../db";
+import { finishRegister, sendRegisterEmail, sendRegisterEmailTeacher, resendConfirmationEmail } from "../db";
 import { EmailSended } from "./emailSended";
 import { usePassword } from "../hooks/usePassword";
 
@@ -324,23 +324,17 @@ function RegisterTeacher({ t, setStatus, setConfirmationEmail }) {
         // Remove previous errors
         setRegisterError(false);
 
-        // Get all the personal information
-        const name = document.getElementById("name").value;
-        const surname = document.getElementById("surname").value;
-        const gender = document.getElementById("gender").value;
-        const course = document.getElementById("course").value;
-        const classVal = document.getElementById("class").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const repassword = document.getElementById("repeat-password");
+        // Get form data
+        const formRaw = new FormData(event.target);
+        const form = Object.fromEntries(formRaw.entries());
 
         // Check if passwords match
-        if (password != repassword.value) {
-            repassword.value = "";
+        if (form.password != form.repassword) {
+            form.repassword = "";
         }
         else {
             // Send the email and check for errors
-            if (await sendRegisterEmail(email, password, name, surname, gender, course, classVal)) {
+            if (await sendRegisterEmailTeacher(form.secret, form.email, form.password, form.name, form.surname, form.gender, JSON.stringify(courses))) {
                 setRegisterError(true);
             }
             else {
@@ -367,8 +361,8 @@ function RegisterTeacher({ t, setStatus, setConfirmationEmail }) {
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row>
                     <Col>
-                        <FloatingLabel controlId="password" label={t("password")} className="mb-3">
-                            <Form.Control required type={passwordVisibility3.status} placeholder="" />
+                        <FloatingLabel label={t("password")} className="mb-3">
+                            <Form.Control name="secret" required type={passwordVisibility3.status} placeholder="" />
 
                             <div className="position-relative">
                                 <button className="password-toggle" type="button" onClick={changePasswordVisibility3}>
@@ -384,22 +378,20 @@ function RegisterTeacher({ t, setStatus, setConfirmationEmail }) {
                 <Row>
                     <Col>
                         <FloatingLabel
-                            controlId="name"
                             label={t("register.name")}
                             className="mb-3"
                         >
-                            <Form.Control required type="text" placeholder="" />
+                            <Form.Control name="name" required type="text" placeholder="" />
                             <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
                             <Form.Control.Feedback type="invalid">{t("verify.name")}</Form.Control.Feedback>
                         </FloatingLabel>
                     </Col>
                     <Col>
                         <FloatingLabel
-                            controlId="surname"
                             label={t("register.surname")}
                             className="mb-3"
                         >
-                            <Form.Control required type="text" placeholder="" />
+                            <Form.Control name="surname" required type="text" placeholder="" />
                             <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
                             <Form.Control.Feedback type="invalid">{t("verify.surname")}</Form.Control.Feedback>
                         </FloatingLabel>
@@ -410,11 +402,10 @@ function RegisterTeacher({ t, setStatus, setConfirmationEmail }) {
                 </Row>
                 <Row>
                     <FloatingLabel
-                        controlId="gender"
                         label={t("register.gender.gender")}
                         className="mb-3"
                     >
-                        <Form.Select className="mb-3">
+                        <Form.Select name="gender" className="mb-3">
                             <option value="M">{t("register.gender.man")}</option>
                             <option value="W">{t("register.gender.woman")}</option>
                             <option value="U">{t("register.gender.undefined")}</option>
@@ -424,18 +415,17 @@ function RegisterTeacher({ t, setStatus, setConfirmationEmail }) {
                 </Row>
                 <Row>
                     <FloatingLabel
-                        controlId="email"
                         label={t("email")}
                         className="mb-3"
                     >
-                        <Form.Control required type="email" placeholder="" />
+                        <Form.Control name="email" required type="email" placeholder="" />
                         <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
                         <Form.Control.Feedback type="invalid">{t("verify.email")}</Form.Control.Feedback>
                     </FloatingLabel>
                 </Row>
                 <Row>
-                    <FloatingLabel controlId="password" label={t("password")} className="mb-3">
-                        <Form.Control required type={passwordVisibility.status} placeholder="" />
+                    <FloatingLabel label={t("password")} className="mb-3">
+                        <Form.Control name="password" required type={passwordVisibility.status} placeholder="" />
 
                         <div className="position-relative">
                             <button className="password-toggle" type="button" onClick={changePasswordVisibility}>
@@ -448,8 +438,8 @@ function RegisterTeacher({ t, setStatus, setConfirmationEmail }) {
                     </FloatingLabel>
                 </Row>
                 <Row>
-                    <FloatingLabel controlId="repeat-password" label={t("password")}>
-                        <Form.Control required type={passwordVisibility2.status} placeholder="" />
+                    <FloatingLabel label={t("password")}>
+                        <Form.Control name="repassword" required type={passwordVisibility2.status} placeholder="" />
 
                         <div className="position-relative">
                             <button className="password-toggle" type="button" onClick={changePasswordVisibility2}>
