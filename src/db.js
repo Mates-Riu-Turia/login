@@ -116,24 +116,51 @@ const saveTempData = async () => {
         const mongo = app.currentUser.mongoClient("mongodb-atlas");
         const collection = mongo.db("user-data").collection("user-data");
 
+
+        // Universal data
         const name = localStorage.getItem("name");
         const surname = localStorage.getItem("surname");
         const gender = localStorage.getItem("gender");
+
+        // Student specific
         const course = localStorage.getItem("course");
         const classVal = localStorage.getItem("class");
 
-        await collection.updateOne(
-            { user_id: app.currentUser.id },
-            {
-                $set: {
-                    name,
-                    surname,
-                    gender,
-                    course,
-                    class: classVal
+        // Teacher specific
+        const secret = localStorage.getItem("secret");
+        const courses = localStorage.getItem("courses");
+
+        // Determine user kind (student/teacher)
+        if (secret !== null) { // User is teacher
+            await collection.updateOne(
+                { user_id: app.currentUser.id },
+                {
+                    $set: {
+                        name,
+                        surname,
+                        gender,
+                        courses
+                    }
                 }
-            }
-        );
+            );
+
+            // Create a entry into the privilegiated collection
+            await app.currentUser.functions.registerTeacher(secret, app.currentUser.id);
+        }
+        else { // User is student
+            await collection.updateOne(
+                { user_id: app.currentUser.id },
+                {
+                    $set: {
+                        name,
+                        surname,
+                        gender,
+                        course,
+                        class: classVal
+                    }
+                }
+            );
+        }
 
         localStorage.removeItem("name");
         localStorage.removeItem("surname");
@@ -149,4 +176,24 @@ const saveTempData = async () => {
 
 export const resendConfirmationEmail = async (email) => {
     await app.emailPasswordAuth.resendConfirmationEmail({ email });
+}
+
+export const sendRegisterEmailTeacher = async (secret, email, password, name, surname, gender, courses) => {
+    try {
+        await app.emailPasswordAuth.registerUser({
+            email,
+            password
+        });
+
+        // Save the temporal data in the localStorage
+        localStorage.setItem("name", name);
+        localStorage.setItem("surname", surname);
+        localStorage.setItem("gender", gender);
+        localStorage.setItem("secret", secret);
+        localStorage.setItem("courses", courses);
+    }
+    catch {
+        return true;
+    }
+    return false;
 }
