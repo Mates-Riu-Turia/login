@@ -26,7 +26,7 @@ export function ResetPassword({ t }) {
     useEffect(() => {
         if (token && tokenId) {
             setStatus("emailRecived");
-        } 
+        }
     }, [token, tokenId, setStatus]);
 
     const [resetPasswordEmail, setResetPasswordEmail] = useState("");
@@ -35,7 +35,7 @@ export function ResetPassword({ t }) {
         case "sendEmail":
             return <SendEmail t={t} setStatus={setStatus} setResetPasswordEmail={setResetPasswordEmail} />;
         case "emailSended":
-            return <EmailSended t={t} resend={() => sendResetEmail(resetPasswordEmail)}/>;
+            return <EmailSended t={t} resend={() => sendResetEmail(resetPasswordEmail)} />;
         case "emailRecived":
             return <EmailRecived t={t} token={token} tokenId={tokenId} />;
         default:
@@ -51,20 +51,21 @@ function SendEmail({ t, setStatus, setResetPasswordEmail }) {
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = async (event) => {
-        const form = event.currentTarget;
         event.preventDefault();
 
         setCredentialError(false);
 
-        const email = document.getElementById("email").value;
+        // Get form data
+        const formRaw = new FormData(event.target);
+        const form = Object.fromEntries(formRaw.entries());
 
-        if (await sendResetEmail(email)) {
+        if (await sendResetEmail(form.email)) {
             // Manage errors
             setCredentialError(true);
         }
         else {
             // Save the user's email in case of retrying
-            setResetPasswordEmail(email);
+            setResetPasswordEmail(form.email);
             // Change the status of the top level component
             setStatus("emailSended");
         }
@@ -85,11 +86,10 @@ function SendEmail({ t, setStatus, setResetPasswordEmail }) {
 
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <FloatingLabel
-                            controlId="email"
-                            label={t("email")}
+                            ç label={t("email")}
                             className="mb-3"
                         >
-                            <Form.Control required type="email" placeholder="" />
+                            <Form.Control name="email" required type="email" placeholder="" />
                             <Form.Control.Feedback>{t("verify.ok")}</Form.Control.Feedback>
                             <Form.Control.Feedback type="invalid">{t("verify.email")}</Form.Control.Feedback>
                         </FloatingLabel>
@@ -108,21 +108,21 @@ function EmailRecived({ t, token, tokenId }) {
     const [passwordVisibility, changePasswordVisibility] = usePassword();
 
     const [passwordVisibility2, changePasswordVisibility2] = usePassword();
-    
+
     // Validate the form
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = async (event) => {
-        const form = event.currentTarget;
         event.preventDefault();
 
         setCredentialError(false);
 
-        const password = document.getElementById("password").value;
-        const repassword = document.getElementById("repeat-password").value;
+        // Get form data
+        const formRaw = new FormData(event.target);
+        const form = Object.fromEntries(formRaw.entries());
 
-        if (password === repassword) {
-            if (await resetPassword(password, token, tokenId)) {
+        if (form.password === form.repassword) {
+            if (await resetPassword(form.password, token, tokenId)) {
                 // Manage errors
                 setCredentialError(true);
             }
@@ -132,7 +132,7 @@ function EmailRecived({ t, token, tokenId }) {
             }
         }
         else {
-            document.getElementById("repeat-password").value = "";
+            form.repassword = "";
         }
 
         setValidated(true);
@@ -149,8 +149,8 @@ function EmailRecived({ t, token, tokenId }) {
                     <p>{t("resetPassword.help2")}</p>
 
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                        <FloatingLabel controlId="password" label={t("password")} className="mb-3">
-                            <Form.Control required type={passwordVisibility.status} placeholder="" />
+                        <FloatingLabel label={t("password")} className="mb-3">
+                            <Form.Control name="password" required type={passwordVisibility.status} placeholder="" />
 
                             <div className="position-relative">
                                 <button className="password-toggle" type="button" onClick={changePasswordVisibility}>
@@ -162,8 +162,8 @@ function EmailRecived({ t, token, tokenId }) {
                             <Form.Control.Feedback type="invalid">{t("verify.password")}</Form.Control.Feedback>
                         </FloatingLabel>
 
-                        <FloatingLabel controlId="repeat-password" label={t("password")}>
-                            <Form.Control required type={passwordVisibility2.status} placeholder="" />
+                        <FloatingLabel label={t("password")}>
+                            <Form.Control name="repassword" required type={passwordVisibility2.status} placeholder="" />
 
                             <div className="position-relative">
                                 <button className="password-toggle" type="button" onClick={changePasswordVisibility2}>
