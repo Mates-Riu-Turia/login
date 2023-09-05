@@ -33,7 +33,7 @@ export const login = async (email, password) => {
             }
         }
 
-        generateAvatar(user.customData.name + user.customData.surname);
+        generateAvatar(user.customData.name + " " + user.customData.surname);
     }
     catch {
         return true;
