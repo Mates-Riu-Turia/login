@@ -27,7 +27,9 @@
     "verify": {
         "ok": "Looks good!",
         "email": "Please, provide a valid email.",
-        "password": "Please, provide a valid password."
+        "password": "Please, provide a valid password.",
+        "name": "Please, provide a valid name.",
+        "surname": "Please, provide a valid surname."
     },
     "email": "Email",
     "password": "Password",
@@ -43,5 +45,72 @@
         "error": "An error happened when recovering password!",
         "sended": "Check your inbox, we just sent you an email.",
         "help2": "Enter the new password and repeat it again to confirm. If the passwords match you will be redirected to login."
-    }
+    },
+    "loading": "Loading...",
+    "logOut": {
+        "thanks": "¡Gracias por usar nuestros servicios! Esperamos que su experiencia haya sido placentera.",
+        "logInAgain": "To log in again press ",
+        "logInAgainLink": "here"
+    },
+    "register": {
+        "title": "Create a new account",
+        "name": "Name",
+        "surname": "Surname",
+        "error": "An error happened when registering the user!",
+        "course": "Course",
+        "class": "Class",
+        "courses": {
+            "1": "1º ESO",
+            "2": "2º ESO",
+            "3": "3º ESO",
+            "4": "4º ESO",
+            "5": "1st Baccalaureate",
+            "6": "2nd Baccalaureate"
+        },
+        "subjects": {
+            "subjects": "Subject",
+            "add_course": "Add new course",
+            "applied_anatomy": "Applied Anatomy",
+            "english": "English",
+            "biology_geology": "Biology and Geology",
+            "spanish": "Spanish",
+            "classic_culture": "Classic culture",
+            "technical_drawing": "Technical drawing",
+            "pe": "P.E",
+            "philosophy": "Philosophy",
+            "physics_chemistry": "Physics and Chemistry",
+            "french": "French",
+            "geography_history": "Geography and History",
+            "greek": "Greek",
+            "computer_science": "Computer science",
+            "universal_literature": "Universal Literature",
+            "latin": "Latin",
+            "maths": "Maths",
+            "music": "Music",
+            "guidance_tutoring": "Guidance and Tutoring",
+            "art": "Art",
+            "religion": "Religion",
+            "technology": "Technology",
+            "valencian": "Valencia",
+            "ethical_values": "Ethical values"
+        },
+        "btn": "Sign up",
+        "gender": {
+            "gender": "Gender",
+            "man": "Man",
+            "woman": "Woman",
+            "undefined": "Undefined"
+        },
+        "student": {
+            "student": "Student Account",
+            "title": "Create Student Account",
+            "help": "Enter your personal data, then we will send you an email with a link to finish the process."
+        },
+        "teacher": {
+            "teacher": "Teacher Account",
+            "title": "Create Teacher Account",
+            "help": "Enter your personal data, then we will send you an email with a link to finish the process. The first password is the access code. The last two must match, it will be the login password."
+        }
+    },
+    "resendEmail": "Resend Email"
 }
