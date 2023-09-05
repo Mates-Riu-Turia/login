@@ -182,7 +182,7 @@ function RegisterStudent({ t, setStatus, setConfirmationEmail }) {
                             label={t("register.class")}
                             className="mb-3"
                         >
-                            <Form.Select name="class" className="mb-3">
+                            <Form.Select name="classVal" className="mb-3">
                                 <option value="A">A</option>
                                 <option value="B">B</option>
                                 <option value="C">C</option>
